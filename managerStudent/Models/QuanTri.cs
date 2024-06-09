@@ -17,6 +17,10 @@ namespace managerStudent.Models
 
         [StringLength(100)]
         public string MatKhau { get; set; }
-
+        public static string HashPassword(string password)
+        {
+            // Đây là nơi bạn thực hiện mã hóa mật khẩu, dưới đây là một ví dụ đơn giản
+            return BCrypt.Net.BCrypt.HashPassword(password);
+        }
     }
 }

@@ -12,6 +12,7 @@ namespace managerStudent.Models
     {
         [Key]
         public int MaLop { get; set; }
+        public int MaKhoi { get; set; }
 
         [StringLength(100)]
         public string TenLop { get; set; }
@@ -21,5 +22,7 @@ namespace managerStudent.Models
 
         // Navigation property
         public ICollection<HocSinh> HocSinhs { get; set; }
+
+        public Khoi Khoi { get; set; }
     }
 }

@@ -39,17 +39,20 @@ namespace managerStudent
         {
             using (var context = new EFDbContext())
             {
+                var a = txtTenDangNhap.Text;
+                var b = txtPassword.Text;
+                var danhSachHocSinh = context.QuanTris.ToList();
                 HashBCrypt hashBCrypt = new HashBCrypt();
                 var admin = context.QuanTris.Where(
-                    qt => qt.TenDangNhap == txtDangNhap.Text &&
-                    qt.MatKhau == HashBCrypt.HashPassword(txtPassword.Text)
+                    qt => qt.TenDangNhap == txtTenDangNhap.Text
                 ).Select(qt => new
                 {
                     qt.TenDangNhap,
-                    qt.QuanTriID
-                }).ToList();
+                    qt.QuanTriID,
+                    qt.MatKhau
+                }).FirstOrDefault();
 
-                if(admin.Count == 0)
+                if (admin == null || HashBCrypt.VerifyPassword(txtPassword.Text, admin.MatKhau) == false)
                 {
                     MessageBox.Show("Sai thông tin đăng nhập.");
                     txtPassword.Text = "";
@@ -57,6 +60,9 @@ namespace managerStudent
                 else
                 {        
                     MessageBox.Show("Đăng nhập thành công.");
+                    TrangChuQuanLy home = new TrangChuQuanLy();
+                    home.Show();
+                    this.Hide();
                 }
                 //var danhSachHocSinh = context.HocSinhs.ToList();
                 //if (danhSachHocSinh.Any())
@@ -112,11 +118,6 @@ namespace managerStudent
             Graphics g = e.Graphics;
             g.SmoothingMode = SmoothingMode.AntiAlias;
             Rectangle rect = new Rectangle(1, 1, btn.Width - 4, btn.Height - 4);
-            //Color shadowColor = Color.FromArgb(128, 10, 10, 10);
-            //using (SolidBrush shadowBrush = new SolidBrush(shadowColor))
-            //{
-            //    g.FillRectangle(shadowBrush, rect);
-            //}
         }
     }
 }

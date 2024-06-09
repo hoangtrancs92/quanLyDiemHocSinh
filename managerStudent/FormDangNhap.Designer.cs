@@ -29,7 +29,7 @@
         private void InitializeComponent()
         {
             label1 = new Label();
-            textBox1 = new TextBox();
+            txtTenDangNhap = new TextBox();
             txtPassword = new TextBox();
             label2 = new Label();
             label3 = new Label();
@@ -47,13 +47,13 @@
             label1.TabIndex = 0;
             label1.Text = "Quản lý học sinh";
             // 
-            // textBox1
+            // txtTenDangNhap
             // 
-            textBox1.Location = new Point(211, 105);
-            textBox1.Multiline = true;
-            textBox1.Name = "textBox1";
-            textBox1.Size = new Size(310, 38);
-            textBox1.TabIndex = 1;
+            txtTenDangNhap.Location = new Point(211, 105);
+            txtTenDangNhap.Multiline = true;
+            txtTenDangNhap.Name = "txtTenDangNhap";
+            txtTenDangNhap.Size = new Size(310, 38);
+            txtTenDangNhap.TabIndex = 1;
             // 
             // txtPassword
             // 
@@ -111,7 +111,7 @@
             Controls.Add(label3);
             Controls.Add(label2);
             Controls.Add(txtPassword);
-            Controls.Add(textBox1);
+            Controls.Add(txtTenDangNhap);
             Controls.Add(label1);
             MaximizeBox = false;
             Name = "FormDangNhap";
@@ -125,7 +125,7 @@
         #endregion
 
         private Label label1;
-        private TextBox textBox1;
+        private TextBox txtTenDangNhap;
         private TextBox txtPassword;
         private Label label2;
         private Label label3;

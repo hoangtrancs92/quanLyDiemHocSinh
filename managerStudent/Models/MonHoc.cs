@@ -22,9 +22,6 @@ namespace managerStudent.Models
         public float TiLeHK1 { get; set; }
         public float TiLeHK2 { get; set; }
 
-        [StringLength(100)]
-        public string Khoi { get; set; }
-
         // Navigation property
         public ICollection<Diem> Diems { get; set; }
     }

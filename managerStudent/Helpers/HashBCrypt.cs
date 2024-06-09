@@ -14,5 +14,10 @@ namespace managerStudent.Helpers
             // Đây là nơi bạn thực hiện mã hóa mật khẩu, dưới đây là một ví dụ đơn giản
             return BCrypt.Net.BCrypt.HashPassword(password);
         }
+
+        public static bool VerifyPassword(string enteredPassword, string storedHash)
+        {
+            return BCrypt.Net.BCrypt.Verify(enteredPassword, storedHash);
+        }
     }
 }

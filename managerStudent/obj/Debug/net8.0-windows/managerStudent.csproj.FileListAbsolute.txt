@@ -132,3 +132,6 @@ C:\Users\hoang\source\repos\managerStudent\managerStudent\obj\Debug\net8.0-windo
 C:\Users\hoang\source\repos\managerStudent\managerStudent\bin\Debug\net8.0-windows\BCrypt.Net.dll
 C:\Users\hoang\source\repos\managerStudent\managerStudent\obj\Debug\net8.0-windows\managerStudent.FormDangNhap.resources
 C:\Users\hoang\source\repos\managerStudent\managerStudent\obj\Debug\net8.0-windows\managerStudent.TrangChuQuanLy.resources
+C:\Users\hoang\source\repos\managerStudent\managerStudent\obj\Debug\net8.0-windows\managerStudent.sourcelink.json
+C:\Users\hoang\source\repos\managerStudent\managerStudent\obj\Debug\net8.0-windows\managerStudent.ThemHocSinh.resources
+C:\Users\hoang\source\repos\managerStudent\managerStudent\obj\Debug\net8.0-windows\managerStudent.DiemHocSinh.resources

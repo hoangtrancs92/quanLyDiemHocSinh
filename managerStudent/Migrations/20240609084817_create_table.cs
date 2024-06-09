@@ -8,23 +8,22 @@ using Microsoft.EntityFrameworkCore.Migrations;
 namespace managerStudent.Migrations
 {
     /// <inheritdoc />
-    public partial class create_databases_table : Migration
+    public partial class create_table : Migration
     {
         /// <inheritdoc />
         protected override void Up(MigrationBuilder migrationBuilder)
         {
             migrationBuilder.CreateTable(
-                name: "Lops",
+                name: "Khois",
                 columns: table => new
                 {
-                    MaLop = table.Column<int>(type: "int", nullable: false)
+                    MaKhoi = table.Column<int>(type: "int", nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
-                    TenLop = table.Column<string>(type: "nvarchar(100)", maxLength: 100, nullable: false),
-                    NamHoc = table.Column<string>(type: "nvarchar(100)", maxLength: 100, nullable: false)
+                    TenKhoi = table.Column<string>(type: "nvarchar(max)", nullable: false)
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_Lops", x => x.MaLop);
+                    table.PrimaryKey("PK_Khois", x => x.MaKhoi);
                 });
 
             migrationBuilder.CreateTable(
@@ -38,8 +37,7 @@ namespace managerStudent.Migrations
                     TiLeGK = table.Column<float>(type: "real", nullable: false),
                     TiLeCuoiKi = table.Column<float>(type: "real", nullable: false),
                     TiLeHK1 = table.Column<float>(type: "real", nullable: false),
-                    TiLeHK2 = table.Column<float>(type: "real", nullable: false),
-                    Khoi = table.Column<string>(type: "nvarchar(100)", maxLength: 100, nullable: false)
+                    TiLeHK2 = table.Column<float>(type: "real", nullable: false)
                 },
                 constraints: table =>
                 {
@@ -58,6 +56,27 @@ namespace managerStudent.Migrations
                 constraints: table =>
                 {
                     table.PrimaryKey("PK_QuanTris", x => x.QuanTriID);
+                });
+
+            migrationBuilder.CreateTable(
+                name: "Lops",
+                columns: table => new
+                {
+                    MaLop = table.Column<int>(type: "int", nullable: false)
+                        .Annotation("SqlServer:Identity", "1, 1"),
+                    MaKhoi = table.Column<int>(type: "int", nullable: false),
+                    TenLop = table.Column<string>(type: "nvarchar(100)", maxLength: 100, nullable: false),
+                    NamHoc = table.Column<string>(type: "nvarchar(100)", maxLength: 100, nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_Lops", x => x.MaLop);
+                    table.ForeignKey(
+                        name: "FK_Lops_Khois_MaKhoi",
+                        column: x => x.MaKhoi,
+                        principalTable: "Khois",
+                        principalColumn: "MaKhoi",
+                        onDelete: ReferentialAction.Cascade);
                 });
 
             migrationBuilder.CreateTable(
@@ -115,23 +134,62 @@ namespace managerStudent.Migrations
                 });
 
             migrationBuilder.InsertData(
-                table: "Lops",
-                columns: new[] { "MaLop", "NamHoc", "TenLop" },
+                table: "Khois",
+                columns: new[] { "MaKhoi", "TenKhoi" },
                 values: new object[,]
                 {
-                    { 1, "2023-2024", "10A" },
-                    { 2, "2023-2024", "10B" },
-                    { 3, "2024-2025", "11A" }
+                    { 1, "Khối 6" },
+                    { 2, "Khối 7" },
+                    { 3, "Khối 8" },
+                    { 4, "Khối 9" }
                 });
 
             migrationBuilder.InsertData(
                 table: "MonHocs",
-                columns: new[] { "MaMon", "HeSoMon", "Khoi", "TenMH", "TiLeCuoiKi", "TiLeGK", "TiLeHK1", "TiLeHK2" },
+                columns: new[] { "MaMon", "HeSoMon", "TenMH", "TiLeCuoiKi", "TiLeGK", "TiLeHK1", "TiLeHK2" },
                 values: new object[,]
                 {
-                    { 1, 1f, "A", "Toan", 0.8f, 0.2f, 0.4f, 0.6f },
-                    { 2, 1f, "A", "Van", 0.8f, 0.2f, 0.4f, 0.6f },
-                    { 3, 1f, "A", "Anh", 0.8f, 0.2f, 0.4f, 0.6f }
+                    { 1, 1f, "Toán", 0.8f, 0.2f, 0.4f, 0.6f },
+                    { 2, 1f, "Văn", 0.8f, 0.2f, 0.4f, 0.6f },
+                    { 3, 1f, "Anh", 0.8f, 0.2f, 0.4f, 0.6f },
+                    { 4, 1f, "Lịch sử", 0.8f, 0.2f, 0.4f, 0.6f },
+                    { 5, 1f, "Địa lý", 0.8f, 0.2f, 0.4f, 0.6f },
+                    { 6, 1f, "Hóa học", 0.8f, 0.2f, 0.4f, 0.6f },
+                    { 7, 1f, "Sinh học", 0.8f, 0.2f, 0.4f, 0.6f },
+                    { 8, 1f, "Công nghệ", 0.8f, 0.2f, 0.4f, 0.6f },
+                    { 9, 1f, "Vật lý", 0.8f, 0.2f, 0.4f, 0.6f },
+                    { 10, 1f, "Giáo dục công dân", 0.8f, 0.2f, 0.4f, 0.6f },
+                    { 11, 1f, "Công dân", 0.8f, 0.2f, 0.4f, 0.6f },
+                    { 12, 1f, "Thể dục", 0.8f, 0.2f, 0.4f, 0.6f },
+                    { 13, 1f, "Âm nhạc", 0.8f, 0.2f, 0.4f, 0.6f }
+                });
+
+            migrationBuilder.InsertData(
+                table: "QuanTris",
+                columns: new[] { "QuanTriID", "MatKhau", "TenDangNhap" },
+                values: new object[] { 1, "$2a$10$ZrE7rrnLoFg2zTEswr4FfOaaFh63jPSOnO3lqBrH2vos17dEoUXYy", "admin" });
+
+            migrationBuilder.InsertData(
+                table: "Lops",
+                columns: new[] { "MaLop", "MaKhoi", "NamHoc", "TenLop" },
+                values: new object[,]
+                {
+                    { 1, 1, "2023-2024", "6A/1" },
+                    { 2, 1, "2023-2024", "6A/2" },
+                    { 3, 1, "2023-2024", "6B/3" },
+                    { 4, 1, "2023-2024", "6B/4" },
+                    { 5, 2, "2023-2024", "7A/1" },
+                    { 6, 2, "2023-2024", "7A/2" },
+                    { 7, 2, "2023-2024", "7B/3" },
+                    { 8, 2, "2023-2024", "7B/4" },
+                    { 9, 3, "2023-2024", "8A/1" },
+                    { 10, 3, "2023-2024", "8A/2" },
+                    { 11, 3, "2023-2024", "8B/3" },
+                    { 12, 3, "2023-2024", "8B/4" },
+                    { 13, 4, "2023-2024", "9A/1" },
+                    { 14, 4, "2023-2024", "9A/2" },
+                    { 15, 4, "2023-2024", "9B/3" },
+                    { 16, 4, "2023-2024", "9B/4" }
                 });
 
             migrationBuilder.InsertData(
@@ -139,9 +197,9 @@ namespace managerStudent.Migrations
                 columns: new[] { "MaHS", "DanToc", "GioiTinh", "HoTenHS", "MaLop", "MatKhau", "NgSinh", "NoiSinh" },
                 values: new object[,]
                 {
-                    { "MS001", "Kinh", "Nam", "Nguyen Van A", 1, "$2a$10$x.mfgx7HGEyWDD0uUWo8qe.h68cKhf9tJakhKO8YzGOspgyx4I4D.", new DateTime(2000, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), "Ha Noi" },
-                    { "MS002", "Hoa", "Nu", "Tran Thi B", 2, "$2a$10$e68qs4Kmgz5q/hDHisbHGei.oSWp3HpSnc9epJOVhqTO9JqPs98Cq", new DateTime(2001, 2, 2, 0, 0, 0, 0, DateTimeKind.Unspecified), "Hai Phong" },
-                    { "MS003", "Kinh", "Nam", "Le Van C", 1, "$2a$10$/MgqXwAYQ5U/Hy1NlrHdGOMlSgWKPHzY6/Nec9omZW2eBf6LbOsY2", new DateTime(2002, 3, 3, 0, 0, 0, 0, DateTimeKind.Unspecified), "Da Nang" }
+                    { "MS001", "Kinh", "Nam", "Nguyen Van A", 1, "$2a$10$zgjnuumY1DA5B6mmTM5H1.WN7lrsqfZNy1hlC4mvgD19Kr6t9tVQ.", new DateTime(2000, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), "Ha Noi" },
+                    { "MS002", "Hoa", "Nu", "Tran Thi B", 2, "$2a$10$eO98NeGRRG23DRtsQzWR4O0YdFJ1QRsk928jR8E1LZut5NXAgrdGq", new DateTime(2001, 2, 2, 0, 0, 0, 0, DateTimeKind.Unspecified), "Hai Phong" },
+                    { "MS003", "Kinh", "Nam", "Le Van C", 1, "$2a$10$P2vnPllZHLMeqlbcnj00A.3UjXtoE9cubw1kR67IJtpo/OX74nDR2", new DateTime(2002, 3, 3, 0, 0, 0, 0, DateTimeKind.Unspecified), "Da Nang" }
                 });
 
             migrationBuilder.InsertData(
@@ -150,6 +208,15 @@ namespace managerStudent.Migrations
                 values: new object[,]
                 {
                     { "MS001", 1, 8.0m, 8.0m, 9.0m, 7.5m, 8.5m, "Kha" },
+                    { "MS001", 2, 8.0m, 8.0m, 9.0m, 7.5m, 8.5m, "Kha" },
+                    { "MS001", 3, 8.0m, 8.0m, 9.0m, 7.5m, 8.5m, "Kha" },
+                    { "MS001", 4, 8.0m, 8.0m, 9.0m, 7.5m, 8.5m, "Kha" },
+                    { "MS001", 5, 8.0m, 8.0m, 9.0m, 7.5m, 8.5m, "Kha" },
+                    { "MS001", 6, 8.0m, 8.0m, 9.0m, 7.5m, 8.5m, "Kha" },
+                    { "MS001", 7, 8.0m, 8.0m, 9.0m, 7.5m, 8.5m, "Kha" },
+                    { "MS001", 8, 8.0m, 8.0m, 9.0m, 7.5m, 8.5m, "Kha" },
+                    { "MS001", 9, 8.0m, 8.0m, 9.0m, 7.5m, 8.5m, "Kha" },
+                    { "MS001", 10, 8.0m, 8.0m, 9.0m, 7.5m, 8.5m, "Kha" },
                     { "MS002", 1, 8.5m, 8.5m, 9.5m, 8.0m, 9.0m, "Gioi" },
                     { "MS003", 1, 7.0m, 7.0m, 8.0m, 6.5m, 7.5m, "Trung Binh" }
                 });
@@ -163,6 +230,11 @@ namespace managerStudent.Migrations
                 name: "IX_HocSinhs_MaLop",
                 table: "HocSinhs",
                 column: "MaLop");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_Lops_MaKhoi",
+                table: "Lops",
+                column: "MaKhoi");
         }
 
         /// <inheritdoc />
@@ -182,6 +254,9 @@ namespace managerStudent.Migrations
 
             migrationBuilder.DropTable(
                 name: "Lops");
+
+            migrationBuilder.DropTable(
+                name: "Khois");
         }
     }
 }
