@@ -1,4 +1,5 @@
 ﻿using managerStudent.Models;
+using managerStudent.Services;
 using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
@@ -10,16 +11,19 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement;
 
 namespace managerStudent
 {
     public partial class ThemHocSinh : Form
     {
         bool isDataValid = true;
-        public ThemHocSinh()
+        string maHS = null;
+        private readonly EFDbContext _context;
+        private readonly HocSinhService _hocSinhService;
+        public ThemHocSinh(string maHS = null)
         {
             InitializeComponent();
-
             // btnLuu
             btnLuu.BackColor = Color.FromArgb(45, 152, 218);
             btnLuu.ForeColor = Color.White;
@@ -46,7 +50,9 @@ namespace managerStudent
 
             rdNam.Checked = true;
 
-            LoadKhois();
+            this.maHS = maHS;
+            _context = new EFDbContext();
+            _hocSinhService = new HocSinhService(_context);
         }
 
         private void btClose_Click(object sender, EventArgs e)
@@ -56,7 +62,25 @@ namespace managerStudent
 
         private void ThemHocSinh_Load(object sender, EventArgs e)
         {
+            LoadKhois();
+            if (maHS != null)
+            {
+                var ketQua = _hocSinhService.GetHocSinhById(maHS);
+                txtTen.Text = ketQua.HoTenHS;
+                txtDanToc.Text = ketQua.DanToc;
+                rdNam.Checked = ketQua.GioiTinh == "Nam" ? true : false;
+                rdNu.Checked = ketQua.GioiTinh == "Nữ" ? true : false;
+                dtNamSinh.CustomFormat = "dd/mm/yyyy";
+                dtNamSinh.Value = ketQua.NgSinh;
+                txtDiaChi.Text = ketQua.NoiSinh;
+                SetCbbKhoiValue(maHS);
+                SetCbbLopValue(maHS);
 
+            }
+            else
+            {
+                LoadKhois();
+            }
         }
         private void Form2_FormClosing(object sender, FormClosingEventArgs e)
         {
@@ -67,54 +91,80 @@ namespace managerStudent
 
         private void btnLuu_Click(object sender, EventArgs e)
         {
-            using (var context = new EFDbContext())
+            if(maHS == null)
             {
-                const string PASSWORD = "123456";
-                var gioiTinh = rdNam.Checked ? "Nam" : "Nữ";
-                var maxMaHS = context.HocSinhs
-                     .OrderByDescending(h => h.MaHS)
-                     .Select(h => h.MaHS)
-                     .FirstOrDefault();
-                var numberPart = int.Parse(maxMaHS.Substring(2));
-                // Tăng giá trị số lên 1
-                numberPart++;
-                int numberLength = maxMaHS.Length - 2;
-                // Định dạng lại MaHS
-                var maHocSinhMoi = "MS" + numberPart.ToString(new string('0', numberLength)); ;
-                var hocSinh = new HocSinh
+                using (var context = new EFDbContext())
                 {
-                    MaHS = maHocSinhMoi,
-                    MatKhau = HocSinh.HashPassword(PASSWORD),
-                    HoTenHS = txtTen.Text,
-                    NgSinh = dtNamSinh.Value,
-                    GioiTinh = gioiTinh,
-                    NoiSinh = txtDiaChi.Text,
-                    DanToc = txtDanToc.Text,
-                    MaLop = (int)cbbLop.SelectedValue
-                };
-                int rowsAffected = 0;
-                // Kiểm tra xem các trường dữ liệu đã được nhập đủ không
-                if (string.IsNullOrWhiteSpace(txtTen.Text) ||
-                    string.IsNullOrWhiteSpace(txtDiaChi.Text) ||
-                    string.IsNullOrWhiteSpace(txtDanToc.Text))
-                {
-                    MessageBox.Show("Vui lòng nhập đầy đủ thông tin trước khi lưu.");
-                    return; // Ngăn thực hiện hành động lưu nếu có trường dữ liệu không hợp lệ
+                    const string PASSWORD = "123456";
+                    var gioiTinh = rdNam.Checked ? "Nam" : "Nữ";
+                    var maxMaHS = context.HocSinhs
+                         .OrderByDescending(h => h.MaHS)
+                         .Select(h => h.MaHS)
+                         .FirstOrDefault();
+                    var numberPart = int.Parse(maxMaHS.Substring(2));
+                    // Tăng giá trị số lên 1
+                    numberPart++;
+                    int numberLength = maxMaHS.Length - 2;
+                    // Định dạng lại MaHS
+                    var maHocSinhMoi = "MS" + numberPart.ToString(new string('0', numberLength)); ;
+                    var hocSinh = new HocSinh
+                    {
+                        MaHS = maHocSinhMoi,
+                        MatKhau = HocSinh.HashPassword(PASSWORD),
+                        HoTenHS = txtTen.Text,
+                        NgSinh = dtNamSinh.Value,
+                        GioiTinh = gioiTinh,
+                        NoiSinh = txtDiaChi.Text,
+                        DanToc = txtDanToc.Text,
+                        MaLop = (int)cbbLop.SelectedValue
+                    };
+                    int rowsAffected = 0;
+                    // Kiểm tra xem các trường dữ liệu đã được nhập đủ không
+                    if (string.IsNullOrWhiteSpace(txtTen.Text) ||
+                        string.IsNullOrWhiteSpace(txtDiaChi.Text) ||
+                        string.IsNullOrWhiteSpace(txtDanToc.Text))
+                    {
+                        MessageBox.Show("Vui lòng nhập đầy đủ thông tin trước khi lưu.");
+                        return; // Ngăn thực hiện hành động lưu nếu có trường dữ liệu không hợp lệ
+                    }
+
+                    context.HocSinhs.Add(hocSinh);
+                    rowsAffected = context.SaveChanges();
+
+                    if (rowsAffected > 0)
+                    {
+                        MessageBox.Show("Lưu học sinh thành công!");
+                        this.DialogResult = DialogResult.OK;
+                        this.Close();
+                    }
+                    else
+                    {
+                        MessageBox.Show("Lưu học sinh không thành công. Vui lòng thử lại!");
+                    }
                 }
+            }
+            else
+            {
+                // Lấy thông tin học sinh từ cơ sở dữ liệu
+                var hocSinh = _hocSinhService.GetHocSinhById(maHS);
 
-                context.HocSinhs.Add(hocSinh);
-                rowsAffected = context.SaveChanges();
+                // Cập nhật các thuộc tính của học sinh
+                hocSinh.HoTenHS = txtTen.Text;
+                hocSinh.DanToc = txtDanToc.Text;
+                hocSinh.GioiTinh = rdNam.Checked ? "Nam" : "Nữ"; // Kiểm tra RadioButton để đặt giới tính
+                hocSinh.NgSinh = dtNamSinh.Value;
+                hocSinh.NoiSinh = txtDiaChi.Text;
 
-                if (rowsAffected > 0)
+                // Cập nhật giá trị của Khoi và Lop cho học sinh
+                UpdateCbbLopValue(hocSinh, maHS);
+                try
                 {
-                    MessageBox.Show("Lưu học sinh thành công!");
+                    // Lưu thay đổi vào cơ sở dữ liệu
+                    _hocSinhService.UpdateHocSinh(hocSinh);
+                    MessageBox.Show("Cập nhật học sinh thành công!");
                     this.DialogResult = DialogResult.OK;
                     this.Close();
-                }
-                else
-                {
-                    MessageBox.Show("Lưu học sinh không thành công. Vui lòng thử lại!");
-                }
+                } catch(Exception ex) { MessageBox.Show(ex.Message); }
             }
 
         }
@@ -144,7 +194,7 @@ namespace managerStudent
 
         private void btnLuu_Paint(object sender, PaintEventArgs e)
         {
-            Button btn = sender as Button;
+            System.Windows.Forms.Button btn = new System.Windows.Forms.Button();
             GraphicsPath path = new GraphicsPath();
             int radius = 20; // Bán kính góc
             path.AddArc(0, 0, radius, radius, 180, 90);
@@ -185,7 +235,7 @@ namespace managerStudent
 
         private void btnDong_Paint(object sender, PaintEventArgs e)
         {
-            Button btn = sender as Button;
+            System.Windows.Forms.Button btn = new System.Windows.Forms.Button();
             GraphicsPath path = new GraphicsPath();
             int radius = 20; // Bán kính góc
             path.AddArc(0, 0, radius, radius, 180, 90);
@@ -244,6 +294,48 @@ namespace managerStudent
             {
                 toolTip1.Show("Vui lòng nhập dân tộc", txtDanToc);
                 isDataValid = false;
+            }
+        }
+
+        private void SetCbbLopValue(string maHS)
+        {
+            // Lấy MaLop từ _hocSinhService.GetLopByMaHS(maHS)
+            int maLop = _hocSinhService.GetLopByMaHS(maHS).MaLop;
+
+            // Tìm item có MaLop tương ứng trong comboBox2
+            foreach (var item in cbbLop.Items)
+            {
+                if (item is Lop lop && lop.MaLop == maLop)
+                {
+                    // Set SelectedItem của comboBox2 thành item tìm được
+                    cbbLop.SelectedItem = item;
+                    break;
+                }
+            }
+        }
+        
+        private void SetCbbKhoiValue(string maHS)
+        {
+            int maKhoi = _hocSinhService.GetKhoiByMaHS(maHS).MaKhoi;
+
+            // Tìm item có MaKhoi tương ứng trong comboBox1
+            foreach (var item in comboBox1.Items)
+            {
+                if (item is Khoi khoi && khoi.MaKhoi == maKhoi)
+                {
+                    // Set SelectedItem của comboBox1 thành item tìm được
+                    comboBox1.SelectedItem = item;
+                    break;
+                }
+            }
+        }
+
+        private void UpdateCbbLopValue(HocSinh hocSinh, string maHS)
+        {
+            // Lấy giá trị Mã Lop từ comboBoxLop
+            if (cbbLop.SelectedItem is Lop lop)
+            {
+                hocSinh.MaLop = lop.MaLop;
             }
         }
     }

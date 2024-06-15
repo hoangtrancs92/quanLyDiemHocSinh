@@ -1,13 +1,9 @@
-﻿using managerStudent.Helpers;
-using managerStudent.Models;
-using managerStudent.Services;
-using Microsoft.EntityFrameworkCore;
+﻿using managerStudent.Models;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
-using System.Drawing.Drawing2D;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -15,38 +11,21 @@ using System.Windows.Forms;
 
 namespace managerStudent
 {
-    public partial class DiemHocSinh : Form
+    public partial class FormCaNhanHocSinh : Form
     {
         string MaHS = "";
         string HoTenHS = "";
         string TenLop = "";
-        private readonly HocSinhService _hocSinhService;
-        private readonly EFDbContext _context;
-        public DiemHocSinh(string MaHS, string HoTenHS, string TenLop)
+        public FormCaNhanHocSinh(string MaHS, string HoTenHS)
         {
+            Lop thongTinLop = loadThongTinHocSinh(MaHS);
             this.MaHS = MaHS;
             this.HoTenHS = HoTenHS;
-            this.TenLop = TenLop;
+            this.TenLop = thongTinLop.TenLop;
             InitializeComponent();
-            // thiết lập form cha
-            // btnThem
-            btnThem.BackColor = Color.FromArgb(45, 152, 218);
-            btnThem.ForeColor = Color.White;
-            btnThem.Font = new Font("Arial", 10, FontStyle.Bold);
-            btnThem.FlatAppearance.BorderSize = 0;
-
-            btnThem.MouseEnter += new EventHandler(btnThem_MouseEnter);
-            btnThem.MouseLeave += new EventHandler(btnThem_MouseLeave);
-            btnThem.MouseDown += new MouseEventHandler(btnThem_MouseDown);
-            btnThem.MouseUp += new MouseEventHandler(btnThem_MouseUp);
-            btnThem.Paint += new PaintEventHandler(btnThem_Paint);
-
-            // Khởi tạo EFDbContext và HocSinhService
-            _context = new EFDbContext();
-            _hocSinhService = new HocSinhService(_context);
         }
 
-        private void DiemHocSinh_Load(object sender, EventArgs e)
+        private void FormCaNhanHocSinh_Load(object sender, EventArgs e)
         {
             txtMaHS.Text = this.MaHS;
             txtTen.Text = this.HoTenHS;
@@ -68,40 +47,25 @@ namespace managerStudent
                                  diem.DiemCKHK1,
                                  diem.DiemGKHK2,
                                  diem.DiemCKHK2,
-                                 lop.NamHoc
+                                 lop.NamHoc,
+                                 diem.DTB,
+                                 diem.XepLoai
                              });
 
                 dataGridViewMonHoc.DataSource = query.ToList();
+                //// Thêm cột "Điểm trung bình" vào DataGridView
+                //DataGridViewTextBoxColumn avgColumn = new DataGridViewTextBoxColumn();
+                //avgColumn.HeaderText = "Điểm trung bình";
+                //avgColumn.Name = "AverageScore";
+                //dataGridViewMonHoc.Columns.Add(avgColumn);
 
-            }
-        }
+                //// Tính toán và thiết lập giá trị cho cột "Điểm trung bình"
+                //foreach (DataGridViewRow row in dataGridViewMonHoc.Rows)
+                //{
+                //    float averageScore = CalculateAverageScore(row);
+                //    row.Cells["AverageScore"].Value = averageScore;
+                //}
 
-        private void dataGridViewMonHoc_CellClick(object sender, DataGridViewCellEventArgs e)
-        {
-            if (e.RowIndex >= 0)
-            {
-                DataGridViewRow selectedRow = dataGridViewMonHoc.Rows[e.RowIndex];
-                // Lấy giá trị của ô trong hàng được chọn
-                int maMon = Convert.ToInt32(selectedRow.Cells["MaMon"].Value);
-
-                // Xử lý dữ liệu
-                using (var context = new EFDbContext())
-                {
-                    var monHocData = context.MonHocs.Where(
-                        mh => mh.MaMon == maMon
-                    ).Select(mh => new
-                    {
-                        mh.TiLeGK,
-                        mh.TiLeCuoiKi,
-                        mh.TiLeHK1,
-                        mh.TiLeHK2,
-                    }).FirstOrDefault();
-
-                    lbGiuaKi.Text = (Convert.ToInt32(monHocData?.TiLeGK * 100)).ToString() + "%";
-                    lbCuoiKi.Text = (Convert.ToInt32(monHocData?.TiLeCuoiKi * 100)).ToString() + "%";
-                    lbHK1.Text = (Convert.ToInt32(monHocData?.TiLeHK1 * 100)).ToString() + "%";
-                    lbHK2.Text = (Convert.ToInt32(monHocData?.TiLeHK2 * 100)).ToString() + "%";
-                }
             }
         }
 
@@ -154,7 +118,9 @@ namespace managerStudent
                                      diem.DiemCKHK1,
                                      diem.DiemGKHK2,
                                      diem.DiemCKHK2,
-                                     lop.NamHoc
+                                     lop.NamHoc,
+                                     diem.DTB,
+                                     diem.XepLoai,
                                  });
                     dataGridViewMonHoc.DataSource = query.ToList();
                     return;
@@ -178,11 +144,25 @@ namespace managerStudent
                                  diem.DiemCKHK1,
                                  diem.DiemGKHK2,
                                  diem.DiemCKHK2,
-                                 lop.NamHoc
+                                 lop.NamHoc,
+                                 diem.DTB,
+                                 diem.XepLoai,
                              });
 
                 dataGridViewMonHoc.DataSource = query.ToList();
             }
+            //// Thêm cột "Điểm trung bình" vào DataGridView
+            //DataGridViewTextBoxColumn avgColumn = new DataGridViewTextBoxColumn();
+            //avgColumn.HeaderText = "Điểm trung bình";
+            //avgColumn.Name = "AverageScore";
+            //dataGridViewMonHoc.Columns.Add(avgColumn);
+
+            //// Tính toán và thiết lập giá trị cho cột "Điểm trung bình"
+            //foreach (DataGridViewRow row in dataGridViewMonHoc.Rows)
+            //{
+            //    float averageScore = CalculateAverageScore(row);
+            //    row.Cells["AverageScore"].Value = averageScore;
+            //}
         }
 
         private void loadTenMonHoc()
@@ -197,57 +177,49 @@ namespace managerStudent
                 comboBox1.ValueMember = "MaMon";
             }
         }
-        private void btnThem_MouseEnter(object sender, EventArgs e)
+
+        private Lop loadThongTinHocSinh(string MaHS)
         {
-            //btnThem.BackColor = Color.FromArgb(75, 123, 236);
-            btnThem.BackColor = Color.White;
-            btnThem.ForeColor = Color.FromArgb(45, 152, 218);
+            using (var context = new EFDbContext())
+            {
+                // Giả sử bạn đã có MaHS
+
+                // Truy vấn để lấy thông tin lớp dựa trên MaHS
+                var lop = (from hs in context.HocSinhs
+                           join l in context.Lops on hs.MaLop equals l.MaLop
+                           where hs.MaHS == MaHS
+                           select l).FirstOrDefault();
+                return lop;
+            }
         }
 
-        private void btnThem_MouseLeave(object sender, EventArgs e)
+        private float CalculateAverageScore(DataGridViewRow row)
         {
-            btnThem.BackColor = Color.FromArgb(45, 152, 218);
-            btnThem.ForeColor = Color.White;
+            float diemGKHK1 = Convert.ToSingle(row.Cells["DiemGKHK1"].Value);
+            float diemCKHK1 = Convert.ToSingle(row.Cells["DiemCKHK1"].Value);
+            float diemGKHK2 = Convert.ToSingle(row.Cells["DiemGKHK2"].Value);
+            float diemCKHK2 = Convert.ToSingle(row.Cells["DiemCKHK2"].Value);
+            float heSoMon = 1; // Giả sử hệ số môn học là 1, bạn có thể thay đổi theo giá trị thực tế
+            float tiLeGK = 0.3f; // Giả sử tỷ lệ điểm giữa kỳ là 30%
+            float tiLeCK = 0.7f; // Giả sử tỷ lệ điểm cuối kỳ là 70%
+
+            float dtbHK1 = (diemGKHK1 * tiLeGK + diemCKHK1 * tiLeCK);
+            float dtbHK2 = (diemGKHK2 * tiLeGK + diemCKHK2 * tiLeCK);
+            float averageScore = (dtbHK1 + dtbHK2) / 2;
+
+            return averageScore;
         }
 
-        private void btnThem_MouseDown(object sender, MouseEventArgs e)
+        private void đăngXuấtToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            btnThem.BackColor = Color.RoyalBlue;
+            FormDangNhap home = new FormDangNhap();
+            home.Show();
+            this.Hide();
         }
 
-        private void btnThem_MouseUp(object sender, MouseEventArgs e)
+        private void thoátToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            btnThem.BackColor = Color.FromArgb(45, 152, 218);
-        }
-        private void btnThem_Paint(object sender, PaintEventArgs e)
-        {
-            Button btn = sender as Button;
-            GraphicsPath path = new GraphicsPath();
-            int radius = 20; // Bán kính góc
-            path.AddArc(0, 0, radius, radius, 180, 90);
-            path.AddArc(btn.Width - radius, 0, radius, radius, 270, 90);
-            path.AddArc(btn.Width - radius, btn.Height - radius, radius, radius, 0, 90);
-            path.AddArc(0, btn.Height - radius, radius, radius, 90, 90);
-            path.CloseAllFigures();
-            btn.Region = new Region(path);
-
-            // Hiệu ứng bóng đổ
-            Graphics g = e.Graphics;
-            g.SmoothingMode = SmoothingMode.AntiAlias;
-            Rectangle rect = new Rectangle(1, 1, btn.Width - 4, btn.Height - 4);
-        }
-
-        private void btnThem_Click(object sender, EventArgs e)
-        {
-            ThemSuaDiem themHocSinh = new ThemSuaDiem();
-            themHocSinh.FormClosed += Dialog_FormClosed;
-            themHocSinh.ShowDialog();
-        }
-
-        private void Dialog_FormClosed(object sender, EventArgs e)
-        {
-            // Thực hiện logic tải lại dữ liệu trên form cha ở đây
-            //ReloadData();
+            this.Close();
         }
     }
 }

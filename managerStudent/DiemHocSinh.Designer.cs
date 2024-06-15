@@ -324,11 +324,13 @@
             btnThem.TabIndex = 21;
             btnThem.Text = "Thêm mới";
             btnThem.UseVisualStyleBackColor = true;
+            btnThem.Click += btnThem_Click;
             // 
             // DiemHocSinh
             // 
             AutoScaleDimensions = new SizeF(10F, 25F);
             AutoScaleMode = AutoScaleMode.Font;
+            BackColor = SystemColors.Control;
             ClientSize = new Size(1509, 908);
             Controls.Add(btnThem);
             Controls.Add(lbCuoiKi);

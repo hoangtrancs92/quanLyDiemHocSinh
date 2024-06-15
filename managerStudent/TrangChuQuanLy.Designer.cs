@@ -42,15 +42,18 @@
             XoaColumn = new DataGridViewButtonColumn();
             menuStrip1 = new MenuStrip();
             categoryToolStripMenuItem = new ToolStripMenuItem();
-            manageCategoryToolStripMenuItem = new ToolStripMenuItem();
             newCategoryToolStripMenuItem = new ToolStripMenuItem();
-            productToolStripMenuItem = new ToolStripMenuItem();
-            manageProductToolStripMenuItem = new ToolStripMenuItem();
-            newProductToolStripMenuItem = new ToolStripMenuItem();
-            khối8ToolStripMenuItem = new ToolStripMenuItem();
-            khối9ToolStripMenuItem = new ToolStripMenuItem();
+            thoátToolStripMenuItem = new ToolStripMenuItem();
             btnThemMoi = new Button();
             comboBox1 = new ComboBox();
+            txtTen = new TextBox();
+            button1 = new Button();
+            label1 = new Label();
+            label2 = new Label();
+            cbbLop = new ComboBox();
+            label3 = new Label();
+            label4 = new Label();
+            txtMaHS = new TextBox();
             ((System.ComponentModel.ISupportInitialize)dataGridView1).BeginInit();
             menuStrip1.SuspendLayout();
             SuspendLayout();
@@ -62,7 +65,7 @@
             dataGridView1.AllowUserToOrderColumns = true;
             dataGridView1.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             dataGridView1.Columns.AddRange(new DataGridViewColumn[] { MaHS, HoTenHS, NgSinh, GioiTinh, DanToc, NoiSinh, TenLop, NamHoc, chinhSuaColumn, xemDiemColumn, XoaColumn });
-            dataGridView1.Location = new Point(35, 197);
+            dataGridView1.Location = new Point(35, 228);
             dataGridView1.Name = "dataGridView1";
             dataGridView1.RowHeadersWidth = 62;
             dataGridView1.Size = new Size(1685, 376);
@@ -168,7 +171,7 @@
             // menuStrip1
             // 
             menuStrip1.ImageScalingSize = new Size(24, 24);
-            menuStrip1.Items.AddRange(new ToolStripItem[] { categoryToolStripMenuItem, productToolStripMenuItem });
+            menuStrip1.Items.AddRange(new ToolStripItem[] { categoryToolStripMenuItem });
             menuStrip1.Location = new Point(0, 0);
             menuStrip1.Name = "menuStrip1";
             menuStrip1.Size = new Size(1732, 33);
@@ -177,59 +180,30 @@
             // 
             // categoryToolStripMenuItem
             // 
-            categoryToolStripMenuItem.DropDownItems.AddRange(new ToolStripItem[] { manageCategoryToolStripMenuItem, newCategoryToolStripMenuItem });
+            categoryToolStripMenuItem.DropDownItems.AddRange(new ToolStripItem[] { newCategoryToolStripMenuItem, thoátToolStripMenuItem });
             categoryToolStripMenuItem.Name = "categoryToolStripMenuItem";
             categoryToolStripMenuItem.Size = new Size(69, 29);
             categoryToolStripMenuItem.Text = "Tổng";
             // 
-            // manageCategoryToolStripMenuItem
-            // 
-            manageCategoryToolStripMenuItem.Name = "manageCategoryToolStripMenuItem";
-            manageCategoryToolStripMenuItem.Size = new Size(267, 34);
-            manageCategoryToolStripMenuItem.Text = "Danh sách học sinh";
-            // 
             // newCategoryToolStripMenuItem
             // 
             newCategoryToolStripMenuItem.Name = "newCategoryToolStripMenuItem";
-            newCategoryToolStripMenuItem.Size = new Size(267, 34);
-            newCategoryToolStripMenuItem.Text = "Thoát";
+            newCategoryToolStripMenuItem.Size = new Size(270, 34);
+            newCategoryToolStripMenuItem.Text = "Đăng xuất";
+            newCategoryToolStripMenuItem.Click += newCategoryToolStripMenuItem_Click;
             // 
-            // productToolStripMenuItem
+            // thoátToolStripMenuItem
             // 
-            productToolStripMenuItem.DropDownItems.AddRange(new ToolStripItem[] { manageProductToolStripMenuItem, newProductToolStripMenuItem, khối8ToolStripMenuItem, khối9ToolStripMenuItem });
-            productToolStripMenuItem.Name = "productToolStripMenuItem";
-            productToolStripMenuItem.Size = new Size(63, 29);
-            productToolStripMenuItem.Text = "Khối";
-            // 
-            // manageProductToolStripMenuItem
-            // 
-            manageProductToolStripMenuItem.Name = "manageProductToolStripMenuItem";
-            manageProductToolStripMenuItem.Size = new Size(164, 34);
-            manageProductToolStripMenuItem.Text = "Khối 6";
-            // 
-            // newProductToolStripMenuItem
-            // 
-            newProductToolStripMenuItem.Name = "newProductToolStripMenuItem";
-            newProductToolStripMenuItem.Size = new Size(164, 34);
-            newProductToolStripMenuItem.Text = "Khối 7";
-            // 
-            // khối8ToolStripMenuItem
-            // 
-            khối8ToolStripMenuItem.Name = "khối8ToolStripMenuItem";
-            khối8ToolStripMenuItem.Size = new Size(164, 34);
-            khối8ToolStripMenuItem.Text = "Khối 8";
-            // 
-            // khối9ToolStripMenuItem
-            // 
-            khối9ToolStripMenuItem.Name = "khối9ToolStripMenuItem";
-            khối9ToolStripMenuItem.Size = new Size(164, 34);
-            khối9ToolStripMenuItem.Text = "Khối 9";
+            thoátToolStripMenuItem.Name = "thoátToolStripMenuItem";
+            thoátToolStripMenuItem.Size = new Size(270, 34);
+            thoátToolStripMenuItem.Text = "Thoát";
+            thoátToolStripMenuItem.Click += thoátToolStripMenuItem_Click;
             // 
             // btnThemMoi
             // 
-            btnThemMoi.Location = new Point(26, 113);
+            btnThemMoi.Location = new Point(35, 131);
             btnThemMoi.Name = "btnThemMoi";
-            btnThemMoi.Size = new Size(148, 51);
+            btnThemMoi.Size = new Size(139, 33);
             btnThemMoi.TabIndex = 6;
             btnThemMoi.Text = "Thêm mới";
             btnThemMoi.UseVisualStyleBackColor = true;
@@ -238,16 +212,94 @@
             // comboBox1
             // 
             comboBox1.FormattingEnabled = true;
-            comboBox1.Location = new Point(232, 131);
+            comboBox1.Location = new Point(1182, 174);
             comboBox1.Name = "comboBox1";
-            comboBox1.Size = new Size(360, 33);
+            comboBox1.Size = new Size(125, 33);
             comboBox1.TabIndex = 7;
+            comboBox1.SelectedIndexChanged += comboBox1_SelectedIndexChanged;
+            // 
+            // txtTen
+            // 
+            txtTen.Location = new Point(1182, 114);
+            txtTen.Name = "txtTen";
+            txtTen.Size = new Size(387, 31);
+            txtTen.TabIndex = 8;
+            // 
+            // button1
+            // 
+            button1.Location = new Point(1596, 174);
+            button1.Name = "button1";
+            button1.Size = new Size(124, 34);
+            button1.TabIndex = 9;
+            button1.Text = "Tìm kiếm";
+            button1.UseVisualStyleBackColor = true;
+            button1.Click += button1_Click;
+            // 
+            // label1
+            // 
+            label1.AutoSize = true;
+            label1.Location = new Point(1049, 117);
+            label1.Name = "label1";
+            label1.Size = new Size(109, 25);
+            label1.TabIndex = 10;
+            label1.Text = "Tên học sinh";
+            // 
+            // label2
+            // 
+            label2.AutoSize = true;
+            label2.Location = new Point(1049, 179);
+            label2.Name = "label2";
+            label2.Size = new Size(47, 25);
+            label2.TabIndex = 11;
+            label2.Text = "Khối";
+            // 
+            // cbbLop
+            // 
+            cbbLop.FormattingEnabled = true;
+            cbbLop.Location = new Point(1444, 174);
+            cbbLop.Name = "cbbLop";
+            cbbLop.Size = new Size(125, 33);
+            cbbLop.TabIndex = 12;
+            cbbLop.SelectedIndexChanged += cbbLop_SelectedIndexChanged;
+            // 
+            // label3
+            // 
+            label3.AutoSize = true;
+            label3.Location = new Point(1375, 182);
+            label3.Name = "label3";
+            label3.Size = new Size(42, 25);
+            label3.TabIndex = 13;
+            label3.Text = "Lớp";
+            // 
+            // label4
+            // 
+            label4.AutoSize = true;
+            label4.Location = new Point(1049, 65);
+            label4.Name = "label4";
+            label4.Size = new Size(108, 25);
+            label4.TabIndex = 14;
+            label4.Text = "Mã học sinh";
+            // 
+            // txtMaHS
+            // 
+            txtMaHS.Location = new Point(1182, 65);
+            txtMaHS.Name = "txtMaHS";
+            txtMaHS.Size = new Size(387, 31);
+            txtMaHS.TabIndex = 15;
             // 
             // TrangChuQuanLy
             // 
             AutoScaleDimensions = new SizeF(10F, 25F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(1732, 661);
+            Controls.Add(txtMaHS);
+            Controls.Add(label4);
+            Controls.Add(label3);
+            Controls.Add(cbbLop);
+            Controls.Add(label2);
+            Controls.Add(label1);
+            Controls.Add(button1);
+            Controls.Add(txtTen);
             Controls.Add(comboBox1);
             Controls.Add(btnThemMoi);
             Controls.Add(menuStrip1);
@@ -268,13 +320,7 @@
         private DataGridView dataGridView1;
         private MenuStrip menuStrip1;
         private ToolStripMenuItem categoryToolStripMenuItem;
-        private ToolStripMenuItem manageCategoryToolStripMenuItem;
         private ToolStripMenuItem newCategoryToolStripMenuItem;
-        private ToolStripMenuItem productToolStripMenuItem;
-        private ToolStripMenuItem manageProductToolStripMenuItem;
-        private ToolStripMenuItem newProductToolStripMenuItem;
-        private ToolStripMenuItem khối8ToolStripMenuItem;
-        private ToolStripMenuItem khối9ToolStripMenuItem;
         private Button btnThemMoi;
         private ComboBox comboBox1;
         private DataGridViewTextBoxColumn MaHS;
@@ -288,5 +334,14 @@
         private DataGridViewButtonColumn chinhSuaColumn;
         private DataGridViewButtonColumn xemDiemColumn;
         private DataGridViewButtonColumn XoaColumn;
+        private TextBox txtTen;
+        private Button button1;
+        private Label label1;
+        private Label label2;
+        private ComboBox cbbLop;
+        private Label label3;
+        private ToolStripMenuItem thoátToolStripMenuItem;
+        private Label label4;
+        private TextBox txtMaHS;
     }
 }

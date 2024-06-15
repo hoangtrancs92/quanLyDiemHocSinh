@@ -135,3 +135,5 @@ C:\Users\hoang\source\repos\managerStudent\managerStudent\obj\Debug\net8.0-windo
 C:\Users\hoang\source\repos\managerStudent\managerStudent\obj\Debug\net8.0-windows\managerStudent.sourcelink.json
 C:\Users\hoang\source\repos\managerStudent\managerStudent\obj\Debug\net8.0-windows\managerStudent.ThemHocSinh.resources
 C:\Users\hoang\source\repos\managerStudent\managerStudent\obj\Debug\net8.0-windows\managerStudent.DiemHocSinh.resources
+C:\Users\hoang\source\repos\managerStudent\managerStudent\obj\Debug\net8.0-windows\managerStudent.FormCaNhanHocSinh.resources
+C:\Users\hoang\source\repos\managerStudent\managerStudent\obj\Debug\net8.0-windows\managerStudent.ThemSuaDiem.resources

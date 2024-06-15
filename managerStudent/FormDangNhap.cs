@@ -39,8 +39,6 @@ namespace managerStudent
         {
             using (var context = new EFDbContext())
             {
-                var a = txtTenDangNhap.Text;
-                var b = txtPassword.Text;
                 var danhSachHocSinh = context.QuanTris.ToList();
                 HashBCrypt hashBCrypt = new HashBCrypt();
                 var admin = context.QuanTris.Where(
@@ -51,31 +49,47 @@ namespace managerStudent
                     qt.QuanTriID,
                     qt.MatKhau
                 }).FirstOrDefault();
-
-                if (admin == null || HashBCrypt.VerifyPassword(txtPassword.Text, admin.MatKhau) == false)
+                if(admin == null)
                 {
-                    MessageBox.Show("Sai thông tin đăng nhập.");
-                    txtPassword.Text = "";
+                    var hocSinh = context.HocSinhs.ToList();
+                    var taiKhoanHocSinh = context.HocSinhs.Where(
+                        hs => hs.MaHS == txtTenDangNhap.Text
+                    ).Select(hs => new
+                    {
+                        hs.MaHS,
+                        hs.MatKhau,
+                        hs.HoTenHS
+                    }).FirstOrDefault();
+
+                    if(taiKhoanHocSinh != null && HashBCrypt.VerifyPassword(txtPassword.Text, taiKhoanHocSinh.MatKhau) == true)
+                    {
+                        MessageBox.Show("Đăng nhập thành công.");
+                        FormCaNhanHocSinh home = new FormCaNhanHocSinh(taiKhoanHocSinh.MaHS, taiKhoanHocSinh.HoTenHS);
+                        home.Show();
+                        this.Hide();
+                    } else
+                    {
+                        MessageBox.Show("Sai thông tin đăng nhập.");
+                        txtPassword.Text = "";
+                    }
                 }
-                else
-                {        
-                    MessageBox.Show("Đăng nhập thành công.");
-                    TrangChuQuanLy home = new TrangChuQuanLy();
-                    home.Show();
-                    this.Hide();
+
+                if (admin != null)
+                {
+                    if(HashBCrypt.VerifyPassword(txtPassword.Text, admin.MatKhau) == false)
+                    {
+                        MessageBox.Show("Sai thông tin đăng nhập.");
+                        txtPassword.Text = "";
+                    } 
+                    else
+                    {
+                        MessageBox.Show("Đăng nhập thành công.");
+                        TrangChuQuanLy home = new TrangChuQuanLy();
+                        home.Show();
+                        this.Hide();
+                    }
+
                 }
-                //var danhSachHocSinh = context.HocSinhs.ToList();
-                //if (danhSachHocSinh.Any())
-                //{
-                //    foreach (var hocSinh in danhSachHocSinh)
-                //    {
-                //        // Hiển thị thông tin của mỗi học sinh trên TextBox
-                //        textBox1.AppendText($"Mã học sinh: {hocSinh.MaHS}, Họ tên: {hocSinh.HoTenHS}\n");
-                //    }
-                //} else
-                //{
-                //    MessageBox.Show("Không có dữ liệu");
-                //}
             }
         }
 
