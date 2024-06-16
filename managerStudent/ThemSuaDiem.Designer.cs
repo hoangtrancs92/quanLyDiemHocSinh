@@ -30,32 +30,36 @@
         {
             label1 = new Label();
             label3 = new Label();
-            txtGKHK1 = new TextBox();
+            txtDiemGKHK1 = new TextBox();
             label4 = new Label();
-            txtCKHK1 = new TextBox();
+            txtDiemCKHK1 = new TextBox();
             label5 = new Label();
             lbTen = new Label();
-            txtCKHK2 = new TextBox();
+            txtDiemCKHK2 = new TextBox();
             label7 = new Label();
-            txtGKHK2 = new TextBox();
+            txtDiemGKHK2 = new TextBox();
             label8 = new Label();
-            label9 = new Label();
+            lbtextDTBTong = new Label();
             label10 = new Label();
             lbMaHS = new Label();
             lbXepLoai = new Label();
-            label13 = new Label();
-            lbDTB = new Label();
+            lbTextXepLoai = new Label();
+            lbDTBHK1 = new Label();
             label15 = new Label();
             label16 = new Label();
             label17 = new Label();
             label18 = new Label();
             button1 = new Button();
             button2 = new Button();
-            lbTiLeHK1 = new Label();
-            lbTiLeHK2 = new Label();
-            lbTiLeGK = new Label();
-            lbTiLeCK = new Label();
             comboBox1 = new ComboBox();
+            label2 = new Label();
+            label6 = new Label();
+            lbDTBHK2 = new Label();
+            lbDiemTBTong = new Label();
+            lbPercentTiLeGK = new Label();
+            lbPercentTiLeCK = new Label();
+            lbPercentTiLeHK1 = new Label();
+            lbPercentTiLeHK2 = new Label();
             SuspendLayout();
             // 
             // label1
@@ -76,12 +80,12 @@
             label3.TabIndex = 2;
             label3.Text = "Điểm GKHK1";
             // 
-            // txtGKHK1
+            // txtDiemGKHK1
             // 
-            txtGKHK1.Location = new Point(165, 176);
-            txtGKHK1.Name = "txtGKHK1";
-            txtGKHK1.Size = new Size(150, 31);
-            txtGKHK1.TabIndex = 3;
+            txtDiemGKHK1.Location = new Point(164, 182);
+            txtDiemGKHK1.Name = "txtDiemGKHK1";
+            txtDiemGKHK1.Size = new Size(150, 31);
+            txtDiemGKHK1.TabIndex = 3;
             // 
             // label4
             // 
@@ -92,12 +96,12 @@
             label4.TabIndex = 4;
             label4.Text = "Điểm CKHK1";
             // 
-            // txtCKHK1
+            // txtDiemCKHK1
             // 
-            txtCKHK1.Location = new Point(165, 244);
-            txtCKHK1.Name = "txtCKHK1";
-            txtCKHK1.Size = new Size(150, 31);
-            txtCKHK1.TabIndex = 5;
+            txtDiemCKHK1.Location = new Point(165, 244);
+            txtDiemCKHK1.Name = "txtDiemCKHK1";
+            txtDiemCKHK1.Size = new Size(150, 31);
+            txtDiemCKHK1.TabIndex = 5;
             // 
             // label5
             // 
@@ -117,12 +121,12 @@
             lbTen.TabIndex = 7;
             lbTen.Text = "label6";
             // 
-            // txtCKHK2
+            // txtDiemCKHK2
             // 
-            txtCKHK2.Location = new Point(513, 244);
-            txtCKHK2.Name = "txtCKHK2";
-            txtCKHK2.Size = new Size(150, 31);
-            txtCKHK2.TabIndex = 11;
+            txtDiemCKHK2.Location = new Point(513, 244);
+            txtDiemCKHK2.Name = "txtDiemCKHK2";
+            txtDiemCKHK2.Size = new Size(150, 31);
+            txtDiemCKHK2.TabIndex = 11;
             // 
             // label7
             // 
@@ -133,12 +137,12 @@
             label7.TabIndex = 10;
             label7.Text = "Điểm CKHK2";
             // 
-            // txtGKHK2
+            // txtDiemGKHK2
             // 
-            txtGKHK2.Location = new Point(513, 176);
-            txtGKHK2.Name = "txtGKHK2";
-            txtGKHK2.Size = new Size(150, 31);
-            txtGKHK2.TabIndex = 9;
+            txtDiemGKHK2.Location = new Point(513, 176);
+            txtDiemGKHK2.Name = "txtDiemGKHK2";
+            txtDiemGKHK2.Size = new Size(150, 31);
+            txtDiemGKHK2.TabIndex = 9;
             // 
             // label8
             // 
@@ -149,14 +153,16 @@
             label8.TabIndex = 8;
             label8.Text = "Điểm GKHK2";
             // 
-            // label9
+            // lbtextDTBTong
             // 
-            label9.AutoSize = true;
-            label9.Location = new Point(406, 360);
-            label9.Name = "label9";
-            label9.Size = new Size(44, 25);
-            label9.TabIndex = 12;
-            label9.Text = "ĐTB";
+            lbtextDTBTong.AutoSize = true;
+            lbtextDTBTong.Font = new Font("Segoe UI Black", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            lbtextDTBTong.ForeColor = Color.Green;
+            lbtextDTBTong.Location = new Point(407, 419);
+            lbtextDTBTong.Name = "lbtextDTBTong";
+            lbtextDTBTong.Size = new Size(96, 25);
+            lbtextDTBTong.TabIndex = 12;
+            lbtextDTBTong.Text = "ĐTB tổng";
             // 
             // label10
             // 
@@ -179,29 +185,37 @@
             // lbXepLoai
             // 
             lbXepLoai.AutoSize = true;
-            lbXepLoai.Location = new Point(526, 414);
+            lbXepLoai.Font = new Font("Segoe UI Black", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            lbXepLoai.ForeColor = Color.Green;
+            lbXepLoai.Location = new Point(526, 457);
             lbXepLoai.Name = "lbXepLoai";
-            lbXepLoai.Size = new Size(69, 25);
+            lbXepLoai.Size = new Size(50, 25);
             lbXepLoai.TabIndex = 15;
-            lbXepLoai.Text = "label12";
+            lbXepLoai.Text = "N/A";
+            lbXepLoai.Validating += lbXepLoai_Validating;
             // 
-            // label13
+            // lbTextXepLoai
             // 
-            label13.AutoSize = true;
-            label13.Location = new Point(406, 414);
-            label13.Name = "label13";
-            label13.Size = new Size(76, 25);
-            label13.TabIndex = 16;
-            label13.Text = "Xếp loại";
+            lbTextXepLoai.AutoSize = true;
+            lbTextXepLoai.Font = new Font("Segoe UI Black", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            lbTextXepLoai.ForeColor = Color.Green;
+            lbTextXepLoai.Location = new Point(407, 457);
+            lbTextXepLoai.Name = "lbTextXepLoai";
+            lbTextXepLoai.Size = new Size(85, 25);
+            lbTextXepLoai.TabIndex = 16;
+            lbTextXepLoai.Text = "Xếp loại";
             // 
-            // lbDTB
+            // lbDTBHK1
             // 
-            lbDTB.AutoSize = true;
-            lbDTB.Location = new Point(526, 360);
-            lbDTB.Name = "lbDTB";
-            lbDTB.Size = new Size(69, 25);
-            lbDTB.TabIndex = 17;
-            lbDTB.Text = "label14";
+            lbDTBHK1.AutoSize = true;
+            lbDTBHK1.Location = new Point(526, 332);
+            lbDTBHK1.Name = "lbDTBHK1";
+            lbDTBHK1.Size = new Size(44, 25);
+            lbDTBHK1.TabIndex = 17;
+            lbDTBHK1.Text = "N/A";
+            lbDTBHK1.TextChanged += lbDTB_TextChanged;
+            lbDTBHK1.Click += lbDTB_Click;
+            lbDTBHK1.Validated += lbDTB_Validated;
             // 
             // label15
             // 
@@ -233,7 +247,7 @@
             // label18
             // 
             label18.AutoSize = true;
-            label18.Location = new Point(35, 457);
+            label18.Location = new Point(35, 465);
             label18.Name = "label18";
             label18.Size = new Size(81, 25);
             label18.TabIndex = 20;
@@ -247,6 +261,7 @@
             button1.TabIndex = 22;
             button1.Text = "Lưu";
             button1.UseVisualStyleBackColor = true;
+            button1.Click += button1_Click;
             // 
             // button2
             // 
@@ -256,82 +271,127 @@
             button2.TabIndex = 23;
             button2.Text = "Hủy";
             button2.UseVisualStyleBackColor = true;
-            // 
-            // lbTiLeHK1
-            // 
-            lbTiLeHK1.AutoSize = true;
-            lbTiLeHK1.Location = new Point(165, 414);
-            lbTiLeHK1.Name = "lbTiLeHK1";
-            lbTiLeHK1.Size = new Size(69, 25);
-            lbTiLeHK1.TabIndex = 27;
-            lbTiLeHK1.Text = "label19";
-            // 
-            // lbTiLeHK2
-            // 
-            lbTiLeHK2.AutoSize = true;
-            lbTiLeHK2.Location = new Point(165, 457);
-            lbTiLeHK2.Name = "lbTiLeHK2";
-            lbTiLeHK2.Size = new Size(69, 25);
-            lbTiLeHK2.TabIndex = 26;
-            lbTiLeHK2.Text = "label20";
-            // 
-            // lbTiLeGK
-            // 
-            lbTiLeGK.AutoSize = true;
-            lbTiLeGK.Location = new Point(165, 309);
-            lbTiLeGK.Name = "lbTiLeGK";
-            lbTiLeGK.Size = new Size(69, 25);
-            lbTiLeGK.TabIndex = 25;
-            lbTiLeGK.Text = "label21";
-            // 
-            // lbTiLeCK
-            // 
-            lbTiLeCK.AutoSize = true;
-            lbTiLeCK.Location = new Point(165, 363);
-            lbTiLeCK.Name = "lbTiLeCK";
-            lbTiLeCK.Size = new Size(69, 25);
-            lbTiLeCK.TabIndex = 24;
-            lbTiLeCK.Text = "label22";
+            button2.Click += button2_Click;
             // 
             // comboBox1
             // 
             comboBox1.FormattingEnabled = true;
-            comboBox1.Location = new Point(165, 121);
+            comboBox1.Location = new Point(164, 121);
             comboBox1.Name = "comboBox1";
             comboBox1.Size = new Size(150, 33);
             comboBox1.TabIndex = 28;
+            comboBox1.SelectedIndexChanged += comboBox1_SelectedIndexChanged;
+            // 
+            // label2
+            // 
+            label2.AutoSize = true;
+            label2.Location = new Point(407, 371);
+            label2.Name = "label2";
+            label2.Size = new Size(82, 25);
+            label2.TabIndex = 33;
+            label2.Text = "ĐTB HK2";
+            // 
+            // label6
+            // 
+            label6.AutoSize = true;
+            label6.Location = new Point(407, 332);
+            label6.Name = "label6";
+            label6.Size = new Size(82, 25);
+            label6.TabIndex = 34;
+            label6.Text = "ĐTB HK1";
+            // 
+            // lbDTBHK2
+            // 
+            lbDTBHK2.AutoSize = true;
+            lbDTBHK2.Location = new Point(526, 371);
+            lbDTBHK2.Name = "lbDTBHK2";
+            lbDTBHK2.Size = new Size(44, 25);
+            lbDTBHK2.TabIndex = 35;
+            lbDTBHK2.Text = "N/A";
+            // 
+            // lbDiemTBTong
+            // 
+            lbDiemTBTong.AutoSize = true;
+            lbDiemTBTong.Font = new Font("Segoe UI Black", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            lbDiemTBTong.ForeColor = Color.Green;
+            lbDiemTBTong.Location = new Point(526, 421);
+            lbDiemTBTong.Name = "lbDiemTBTong";
+            lbDiemTBTong.Size = new Size(50, 25);
+            lbDiemTBTong.TabIndex = 36;
+            lbDiemTBTong.Text = "N/A";
+            lbDiemTBTong.Click += lbDiemTBTong_Click;
+            // 
+            // lbPercentTiLeGK
+            // 
+            lbPercentTiLeGK.AutoSize = true;
+            lbPercentTiLeGK.Location = new Point(138, 306);
+            lbPercentTiLeGK.Name = "lbPercentTiLeGK";
+            lbPercentTiLeGK.Size = new Size(59, 25);
+            lbPercentTiLeGK.TabIndex = 37;
+            lbPercentTiLeGK.Text = "label9";
+            // 
+            // lbPercentTiLeCK
+            // 
+            lbPercentTiLeCK.AutoSize = true;
+            lbPercentTiLeCK.Location = new Point(138, 363);
+            lbPercentTiLeCK.Name = "lbPercentTiLeCK";
+            lbPercentTiLeCK.Size = new Size(59, 25);
+            lbPercentTiLeCK.TabIndex = 37;
+            lbPercentTiLeCK.Text = "label9";
+            // 
+            // lbPercentTiLeHK1
+            // 
+            lbPercentTiLeHK1.AutoSize = true;
+            lbPercentTiLeHK1.Location = new Point(138, 414);
+            lbPercentTiLeHK1.Name = "lbPercentTiLeHK1";
+            lbPercentTiLeHK1.Size = new Size(59, 25);
+            lbPercentTiLeHK1.TabIndex = 37;
+            lbPercentTiLeHK1.Text = "label9";
+            // 
+            // lbPercentTiLeHK2
+            // 
+            lbPercentTiLeHK2.AutoSize = true;
+            lbPercentTiLeHK2.Location = new Point(138, 465);
+            lbPercentTiLeHK2.Name = "lbPercentTiLeHK2";
+            lbPercentTiLeHK2.Size = new Size(59, 25);
+            lbPercentTiLeHK2.TabIndex = 37;
+            lbPercentTiLeHK2.Text = "label9";
             // 
             // ThemSuaDiem
             // 
             AutoScaleDimensions = new SizeF(10F, 25F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(685, 502);
+            Controls.Add(lbPercentTiLeHK2);
+            Controls.Add(lbPercentTiLeHK1);
+            Controls.Add(lbPercentTiLeCK);
+            Controls.Add(lbPercentTiLeGK);
+            Controls.Add(lbDiemTBTong);
+            Controls.Add(lbDTBHK2);
+            Controls.Add(label6);
+            Controls.Add(label2);
             Controls.Add(comboBox1);
-            Controls.Add(lbTiLeHK1);
-            Controls.Add(lbTiLeHK2);
-            Controls.Add(lbTiLeGK);
-            Controls.Add(lbTiLeCK);
             Controls.Add(button2);
             Controls.Add(button1);
             Controls.Add(label17);
             Controls.Add(label18);
             Controls.Add(label15);
             Controls.Add(label16);
-            Controls.Add(lbDTB);
-            Controls.Add(label13);
+            Controls.Add(lbDTBHK1);
+            Controls.Add(lbTextXepLoai);
             Controls.Add(lbXepLoai);
             Controls.Add(lbMaHS);
             Controls.Add(label10);
-            Controls.Add(label9);
-            Controls.Add(txtCKHK2);
+            Controls.Add(lbtextDTBTong);
+            Controls.Add(txtDiemCKHK2);
             Controls.Add(label7);
-            Controls.Add(txtGKHK2);
+            Controls.Add(txtDiemGKHK2);
             Controls.Add(label8);
             Controls.Add(lbTen);
             Controls.Add(label5);
-            Controls.Add(txtCKHK1);
+            Controls.Add(txtDiemCKHK1);
             Controls.Add(label4);
-            Controls.Add(txtGKHK1);
+            Controls.Add(txtDiemGKHK1);
             Controls.Add(label3);
             Controls.Add(label1);
             Name = "ThemSuaDiem";
@@ -346,31 +406,35 @@
 
         private Label label1;
         private Label label3;
-        private TextBox txtGKHK1;
+        private TextBox txtDiemGKHK1;
         private Label label4;
-        private TextBox txtCKHK1;
+        private TextBox txtDiemCKHK1;
         private Label label5;
         private Label lbTen;
-        private TextBox txtCKHK2;
+        private TextBox txtDiemCKHK2;
         private Label label7;
-        private TextBox txtGKHK2;
+        private TextBox txtDiemGKHK2;
         private Label label8;
-        private Label label9;
+        private Label lbtextDTBTong;
         private Label label10;
         private Label lbMaHS;
         private Label lbXepLoai;
-        private Label label13;
-        private Label lbDTB;
+        private Label lbTextXepLoai;
+        private Label lbDTBHK1;
         private Label label15;
         private Label label16;
         private Label label17;
         private Label label18;
         private Button button1;
         private Button button2;
-        private Label lbTiLeHK1;
-        private Label lbTiLeHK2;
-        private Label lbTiLeGK;
-        private Label lbTiLeCK;
         private ComboBox comboBox1;
+        private Label label2;
+        private Label label6;
+        private Label lbDTBHK2;
+        private Label lbDiemTBTong;
+        private Label lbPercentTiLeGK;
+        private Label lbPercentTiLeCK;
+        private Label lbPercentTiLeHK1;
+        private Label lbPercentTiLeHK2;
     }
 }
