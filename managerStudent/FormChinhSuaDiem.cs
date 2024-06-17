@@ -206,10 +206,10 @@ namespace managerStudent
                 if (diem != null)
                 {
                     // Cập nhật các trường dữ liệu của đối tượng Diem
-                    diem.DiemCKHK1 = decimal.Parse(txtDiemCKHK1.Text);
-                    diem.DiemCKHK2 = decimal.Parse(txtDiemCKHK2.Text);
-                    diem.DiemGKHK1 = decimal.Parse(txtDiemGKHK1.Text);
-                    diem.DiemGKHK2 = decimal.Parse(txtDiemGKHK2.Text);
+                    diem.DiemCKHK1 = decimal.Parse(string.IsNullOrEmpty(txtDiemCKHK1.Text) ? "0" : txtDiemCKHK1.Text);
+                    diem.DiemCKHK2 = decimal.Parse(string.IsNullOrEmpty(txtDiemCKHK2.Text) ? "0" : txtDiemCKHK2.Text);
+                    diem.DiemGKHK1 = decimal.Parse(string.IsNullOrEmpty(txtDiemGKHK1.Text) ? "0" : txtDiemGKHK1.Text);
+                    diem.DiemGKHK2 = decimal.Parse(string.IsNullOrEmpty(txtDiemGKHK2.Text) ? "0" : txtDiemGKHK2.Text);
                     diem.DTB = decimal.Parse(lbDiemTBTong.Text);
                     diem.XepLoai = lbXepLoai.Text;
 

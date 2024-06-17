@@ -61,6 +61,10 @@
             lbtextDTB = new Label();
             lbtxtxeploai = new Label();
             lbXepLoai = new Label();
+            label8 = new Label();
+            label11 = new Label();
+            lbXepLoaiTong = new Label();
+            lbDiemTBTong = new Label();
             ((System.ComponentModel.ISupportInitialize)dataGridViewMonHoc).BeginInit();
             SuspendLayout();
             // 
@@ -334,7 +338,7 @@
             // 
             lbDiemTrungBinh.AutoSize = true;
             lbDiemTrungBinh.Font = new Font("Segoe UI Black", 9F, FontStyle.Bold);
-            lbDiemTrungBinh.Location = new Point(608, 614);
+            lbDiemTrungBinh.Location = new Point(605, 596);
             lbDiemTrungBinh.Name = "lbDiemTrungBinh";
             lbDiemTrungBinh.Size = new Size(0, 25);
             lbDiemTrungBinh.TabIndex = 22;
@@ -344,7 +348,7 @@
             // 
             lbtextDTB.AutoSize = true;
             lbtextDTB.Font = new Font("Segoe UI Black", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            lbtextDTB.Location = new Point(362, 613);
+            lbtextDTB.Location = new Point(359, 595);
             lbtextDTB.Name = "lbtextDTB";
             lbtextDTB.Size = new Size(203, 25);
             lbtextDTB.TabIndex = 23;
@@ -355,7 +359,7 @@
             // 
             lbtxtxeploai.AutoSize = true;
             lbtxtxeploai.Font = new Font("Segoe UI Black", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            lbtxtxeploai.Location = new Point(362, 668);
+            lbtxtxeploai.Location = new Point(359, 650);
             lbtxtxeploai.Name = "lbtxtxeploai";
             lbtxtxeploai.Size = new Size(129, 25);
             lbtxtxeploai.TabIndex = 24;
@@ -365,10 +369,50 @@
             // 
             lbXepLoai.AutoSize = true;
             lbXepLoai.Font = new Font("Segoe UI Black", 9F, FontStyle.Bold);
-            lbXepLoai.Location = new Point(608, 668);
+            lbXepLoai.Location = new Point(605, 650);
             lbXepLoai.Name = "lbXepLoai";
             lbXepLoai.Size = new Size(0, 25);
             lbXepLoai.TabIndex = 25;
+            // 
+            // label8
+            // 
+            label8.AutoSize = true;
+            label8.Font = new Font("Segoe UI Black", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            label8.Location = new Point(356, 713);
+            label8.Name = "label8";
+            label8.Size = new Size(206, 25);
+            label8.TabIndex = 26;
+            label8.Text = "Điểm trung bình tổng";
+            // 
+            // label11
+            // 
+            label11.AutoSize = true;
+            label11.Font = new Font("Segoe UI Black", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            label11.Location = new Point(359, 766);
+            label11.Name = "label11";
+            label11.Size = new Size(132, 25);
+            label11.TabIndex = 27;
+            label11.Text = "Xếp loại tổng";
+            // 
+            // lbXepLoaiTong
+            // 
+            lbXepLoaiTong.AutoSize = true;
+            lbXepLoaiTong.Font = new Font("Segoe UI Black", 9F, FontStyle.Bold);
+            lbXepLoaiTong.Location = new Point(605, 766);
+            lbXepLoaiTong.Name = "lbXepLoaiTong";
+            lbXepLoaiTong.Size = new Size(56, 25);
+            lbXepLoaiTong.TabIndex = 29;
+            lbXepLoaiTong.Text = "label";
+            // 
+            // lbDiemTBTong
+            // 
+            lbDiemTBTong.AutoSize = true;
+            lbDiemTBTong.Font = new Font("Segoe UI Black", 9F, FontStyle.Bold);
+            lbDiemTBTong.Location = new Point(605, 712);
+            lbDiemTBTong.Name = "lbDiemTBTong";
+            lbDiemTBTong.Size = new Size(56, 25);
+            lbDiemTBTong.TabIndex = 28;
+            lbDiemTBTong.Text = "label";
             // 
             // DiemHocSinh
             // 
@@ -376,6 +420,10 @@
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = SystemColors.Control;
             ClientSize = new Size(1509, 908);
+            Controls.Add(lbXepLoaiTong);
+            Controls.Add(lbDiemTBTong);
+            Controls.Add(label11);
+            Controls.Add(label8);
             Controls.Add(lbXepLoai);
             Controls.Add(lbtxtxeploai);
             Controls.Add(lbtextDTB);
@@ -447,5 +495,9 @@
         private Label lbtextDTB;
         private Label lbtxtxeploai;
         private Label lbXepLoai;
+        private Label label8;
+        private Label label11;
+        private Label lbXepLoaiTong;
+        private Label lbDiemTBTong;
     }
 }

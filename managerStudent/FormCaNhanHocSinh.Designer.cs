@@ -64,6 +64,10 @@
             tooToolStripMenuItem = new ToolStripMenuItem();
             đăngXuấtToolStripMenuItem = new ToolStripMenuItem();
             thoátToolStripMenuItem = new ToolStripMenuItem();
+            lbXepLoaiTong = new Label();
+            lbDiemTBTong = new Label();
+            label7 = new Label();
+            label9 = new Label();
             ((System.ComponentModel.ISupportInitialize)dataGridViewMonHoc).BeginInit();
             menuStrip1.SuspendLayout();
             SuspendLayout();
@@ -375,22 +379,66 @@
             // đăngXuấtToolStripMenuItem
             // 
             đăngXuấtToolStripMenuItem.Name = "đăngXuấtToolStripMenuItem";
-            đăngXuấtToolStripMenuItem.Size = new Size(270, 34);
+            đăngXuấtToolStripMenuItem.Size = new Size(195, 34);
             đăngXuấtToolStripMenuItem.Text = "Đăng xuất";
             đăngXuấtToolStripMenuItem.Click += đăngXuấtToolStripMenuItem_Click;
             // 
             // thoátToolStripMenuItem
             // 
             thoátToolStripMenuItem.Name = "thoátToolStripMenuItem";
-            thoátToolStripMenuItem.Size = new Size(270, 34);
+            thoátToolStripMenuItem.Size = new Size(195, 34);
             thoátToolStripMenuItem.Text = "Thoát";
             thoátToolStripMenuItem.Click += thoátToolStripMenuItem_Click;
+            // 
+            // lbXepLoaiTong
+            // 
+            lbXepLoaiTong.AutoSize = true;
+            lbXepLoaiTong.Font = new Font("Segoe UI Black", 9F, FontStyle.Bold);
+            lbXepLoaiTong.Location = new Point(607, 732);
+            lbXepLoaiTong.Name = "lbXepLoaiTong";
+            lbXepLoaiTong.Size = new Size(56, 25);
+            lbXepLoaiTong.TabIndex = 58;
+            lbXepLoaiTong.Text = "label";
+            // 
+            // lbDiemTBTong
+            // 
+            lbDiemTBTong.AutoSize = true;
+            lbDiemTBTong.Font = new Font("Segoe UI Black", 9F, FontStyle.Bold);
+            lbDiemTBTong.Location = new Point(607, 678);
+            lbDiemTBTong.Name = "lbDiemTBTong";
+            lbDiemTBTong.Size = new Size(56, 25);
+            lbDiemTBTong.TabIndex = 57;
+            lbDiemTBTong.Text = "label";
+            // 
+            // label7
+            // 
+            label7.AutoSize = true;
+            label7.Font = new Font("Segoe UI Black", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            label7.Location = new Point(361, 732);
+            label7.Name = "label7";
+            label7.Size = new Size(132, 25);
+            label7.TabIndex = 56;
+            label7.Text = "Xep loại tổng";
+            // 
+            // label9
+            // 
+            label9.AutoSize = true;
+            label9.Font = new Font("Segoe UI Black", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            label9.Location = new Point(358, 679);
+            label9.Name = "label9";
+            label9.Size = new Size(206, 25);
+            label9.TabIndex = 55;
+            label9.Text = "Điểm trung bình tổng";
             // 
             // FormCaNhanHocSinh
             // 
             AutoScaleDimensions = new SizeF(10F, 25F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(1440, 889);
+            Controls.Add(lbXepLoaiTong);
+            Controls.Add(lbDiemTBTong);
+            Controls.Add(label7);
+            Controls.Add(label9);
             Controls.Add(label6);
             Controls.Add(label5);
             Controls.Add(textBox2);
@@ -466,5 +514,9 @@
         private ToolStripMenuItem tooToolStripMenuItem;
         private ToolStripMenuItem đăngXuấtToolStripMenuItem;
         private ToolStripMenuItem thoátToolStripMenuItem;
+        private Label lbXepLoaiTong;
+        private Label lbDiemTBTong;
+        private Label label7;
+        private Label label9;
     }
 }

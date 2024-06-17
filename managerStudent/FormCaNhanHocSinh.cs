@@ -1,4 +1,5 @@
 ﻿using managerStudent.Models;
+using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -53,20 +54,45 @@ namespace managerStudent
                              });
 
                 dataGridViewMonHoc.DataSource = query.ToList();
-                //// Thêm cột "Điểm trung bình" vào DataGridView
-                //DataGridViewTextBoxColumn avgColumn = new DataGridViewTextBoxColumn();
-                //avgColumn.HeaderText = "Điểm trung bình";
-                //avgColumn.Name = "AverageScore";
-                //dataGridViewMonHoc.Columns.Add(avgColumn);
-
-                //// Tính toán và thiết lập giá trị cho cột "Điểm trung bình"
-                //foreach (DataGridViewRow row in dataGridViewMonHoc.Rows)
-                //{
-                //    float averageScore = CalculateAverageScore(row);
-                //    row.Cells["AverageScore"].Value = averageScore;
-                //}
 
             }
+            using(var context = new EFDbContext())
+            {
+                var query = context.Diems
+                   .Include(d => d.MonHoc)    // Include related MonHoc entities
+                   .Include(d => d.HocSinh)   // Include related HocSinh entities
+                   .Where(d => d.MaHS == MaHS) // Filter by student MaHS
+                   .ToList();                  // Execute query and retrieve all matching Diem entities              // Execute query and retrieve all matching Diem entities
+                decimal sumDTB = 0;
+                foreach (var diem in query.ToList())
+                {
+                    sumDTB += diem.DTB;
+                }
+                double diemTrungBinhTong = query.ToList().Count > 0 ? (double)sumDTB / query.ToList().Count : 0.0;
+                diemTrungBinhTong = Math.Round(diemTrungBinhTong, 2);
+                lbDiemTBTong.Text = diemTrungBinhTong.ToString();
+                if (diemTrungBinhTong >= 8)
+                {
+                    lbXepLoaiTong.Text = "Giỏi";
+
+                }
+                else if (diemTrungBinhTong >= 6.5)
+                {
+                    lbXepLoaiTong.Text = "Khá";
+
+                }
+                else if (diemTrungBinhTong >= 5)
+                {
+                    lbXepLoaiTong.Text = "Trung bình";
+
+                }
+                else
+                {
+                    lbXepLoaiTong.Text = "Yếu";
+
+                }
+            }
+
         }
 
         private void dataGridViewMonHoc_CellContentClick(object sender, DataGridViewCellEventArgs e)

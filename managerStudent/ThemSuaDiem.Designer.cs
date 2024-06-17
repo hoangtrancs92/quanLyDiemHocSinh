@@ -316,9 +316,9 @@
             lbDiemTBTong.ForeColor = Color.Green;
             lbDiemTBTong.Location = new Point(526, 421);
             lbDiemTBTong.Name = "lbDiemTBTong";
-            lbDiemTBTong.Size = new Size(50, 25);
+            lbDiemTBTong.Size = new Size(23, 25);
             lbDiemTBTong.TabIndex = 36;
-            lbDiemTBTong.Text = "N/A";
+            lbDiemTBTong.Text = "0";
             lbDiemTBTong.Click += lbDiemTBTong_Click;
             // 
             // lbPercentTiLeGK

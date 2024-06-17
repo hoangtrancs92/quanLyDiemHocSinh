@@ -3,67 +3,20 @@
   "WorkspaceRootPath": "C:\\Users\\hoang\\Desktop\\quanLyDiemHocSinh\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{D424D17A-0AE8-4885-A548-061DF6B1BBD5}|managerStudent\\managerStudent.csproj|C:\\Users\\hoang\\Desktop\\quanLyDiemHocSinh\\managerstudent\\diemhocsinh.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "AbsoluteMoniker": "D:0:0:{D424D17A-0AE8-4885-A548-061DF6B1BBD5}|managerStudent\\managerStudent.csproj|c:\\users\\hoang\\desktop\\quanlydiemhocsinh\\managerstudent\\diemhocsinh.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
       "RelativeMoniker": "D:0:0:{D424D17A-0AE8-4885-A548-061DF6B1BBD5}|managerStudent\\managerStudent.csproj|solutionrelative:managerstudent\\diemhocsinh.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{D424D17A-0AE8-4885-A548-061DF6B1BBD5}|managerStudent\\managerStudent.csproj|C:\\Users\\hoang\\Desktop\\quanLyDiemHocSinh\\managerstudent\\diemhocsinh.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{D424D17A-0AE8-4885-A548-061DF6B1BBD5}|managerStudent\\managerStudent.csproj|solutionrelative:managerstudent\\diemhocsinh.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{D424D17A-0AE8-4885-A548-061DF6B1BBD5}|managerStudent\\managerStudent.csproj|C:\\Users\\hoang\\Desktop\\quanLyDiemHocSinh\\managerstudent\\themsuadiem.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{D424D17A-0AE8-4885-A548-061DF6B1BBD5}|managerStudent\\managerStudent.csproj|solutionrelative:managerstudent\\themsuadiem.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{D424D17A-0AE8-4885-A548-061DF6B1BBD5}|managerStudent\\managerStudent.csproj|C:\\Users\\hoang\\Desktop\\quanLyDiemHocSinh\\managerstudent\\themsuadiem.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
-      "RelativeMoniker": "D:0:0:{D424D17A-0AE8-4885-A548-061DF6B1BBD5}|managerStudent\\managerStudent.csproj|solutionrelative:managerstudent\\themsuadiem.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{D424D17A-0AE8-4885-A548-061DF6B1BBD5}|managerStudent\\managerStudent.csproj|C:\\Users\\hoang\\Desktop\\quanLyDiemHocSinh\\managerstudent\\diemhocsinh.designer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{D424D17A-0AE8-4885-A548-061DF6B1BBD5}|managerStudent\\managerStudent.csproj|solutionrelative:managerstudent\\diemhocsinh.designer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{D424D17A-0AE8-4885-A548-061DF6B1BBD5}|managerStudent\\managerStudent.csproj|c:\\users\\hoang\\desktop\\quanlydiemhocsinh\\managerstudent\\formchinhsuadiem.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{D424D17A-0AE8-4885-A548-061DF6B1BBD5}|managerStudent\\managerStudent.csproj|solutionrelative:managerstudent\\formchinhsuadiem.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
+      "AbsoluteMoniker": "D:0:0:{D424D17A-0AE8-4885-A548-061DF6B1BBD5}|managerStudent\\managerStudent.csproj|C:\\Users\\hoang\\Desktop\\quanLyDiemHocSinh\\managerstudent\\themsuadiem.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{D424D17A-0AE8-4885-A548-061DF6B1BBD5}|managerStudent\\managerStudent.csproj|solutionrelative:managerstudent\\themsuadiem.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
       "AbsoluteMoniker": "D:0:0:{D424D17A-0AE8-4885-A548-061DF6B1BBD5}|managerStudent\\managerStudent.csproj|c:\\users\\hoang\\desktop\\quanlydiemhocsinh\\managerstudent\\formchinhsuadiem.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
       "RelativeMoniker": "D:0:0:{D424D17A-0AE8-4885-A548-061DF6B1BBD5}|managerStudent\\managerStudent.csproj|solutionrelative:managerstudent\\formchinhsuadiem.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{D424D17A-0AE8-4885-A548-061DF6B1BBD5}|managerStudent\\managerStudent.csproj|c:\\users\\hoang\\desktop\\quanlydiemhocsinh\\managerstudent\\formcanhanhocsinh.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
-      "RelativeMoniker": "D:0:0:{D424D17A-0AE8-4885-A548-061DF6B1BBD5}|managerStudent\\managerStudent.csproj|solutionrelative:managerstudent\\formcanhanhocsinh.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{D424D17A-0AE8-4885-A548-061DF6B1BBD5}|managerStudent\\managerStudent.csproj|C:\\Users\\hoang\\Desktop\\quanLyDiemHocSinh\\managerstudent\\trangchuquanly.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
-      "RelativeMoniker": "D:0:0:{D424D17A-0AE8-4885-A548-061DF6B1BBD5}|managerStudent\\managerStudent.csproj|solutionrelative:managerstudent\\trangchuquanly.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{D424D17A-0AE8-4885-A548-061DF6B1BBD5}|managerStudent\\managerStudent.csproj|C:\\Users\\hoang\\Desktop\\quanLyDiemHocSinh\\managerstudent\\themhocsinh.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
-      "RelativeMoniker": "D:0:0:{D424D17A-0AE8-4885-A548-061DF6B1BBD5}|managerStudent\\managerStudent.csproj|solutionrelative:managerstudent\\themhocsinh.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{D424D17A-0AE8-4885-A548-061DF6B1BBD5}|managerStudent\\managerStudent.csproj|C:\\Users\\hoang\\Desktop\\quanLyDiemHocSinh\\managerstudent\\trangchuquanly.designer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{D424D17A-0AE8-4885-A548-061DF6B1BBD5}|managerStudent\\managerStudent.csproj|solutionrelative:managerstudent\\trangchuquanly.designer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Program Files\\Microsoft Visual Studio\\2022\\Community\\MSBuild\\Current\\Bin\\amd64\\Microsoft.Common.CurrentVersion.targets||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{D424D17A-0AE8-4885-A548-061DF6B1BBD5}|managerStudent\\managerStudent.csproj|C:\\Users\\hoang\\Desktop\\quanLyDiemHocSinh\\managerstudent\\trangchuquanly.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{D424D17A-0AE8-4885-A548-061DF6B1BBD5}|managerStudent\\managerStudent.csproj|solutionrelative:managerstudent\\trangchuquanly.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{D424D17A-0AE8-4885-A548-061DF6B1BBD5}|managerStudent\\managerStudent.csproj|C:\\Users\\hoang\\Desktop\\quanLyDiemHocSinh\\managerstudent\\themhocsinh.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{D424D17A-0AE8-4885-A548-061DF6B1BBD5}|managerStudent\\managerStudent.csproj|solutionrelative:managerstudent\\themhocsinh.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{D424D17A-0AE8-4885-A548-061DF6B1BBD5}|managerStudent\\managerStudent.csproj|C:\\Users\\hoang\\Desktop\\quanLyDiemHocSinh\\managerstudent\\themsuadiem.designer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{D424D17A-0AE8-4885-A548-061DF6B1BBD5}|managerStudent\\managerStudent.csproj|solutionrelative:managerstudent\\themsuadiem.designer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\hoang\\Desktop\\quanLyDiemHocSinh\\managerstudent\\obj\\debug\\net8.0-windows\\managerstudent.assemblyinfo.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:managerstudent\\obj\\debug\\net8.0-windows\\managerstudent.assemblyinfo.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -73,7 +26,7 @@
       "DocumentGroups": [
         {
           "DockedHeight": 308,
-          "SelectedChildIndex": 17,
+          "SelectedChildIndex": 3,
           "Children": [
             {
               "$type": "Bookmark",
@@ -85,192 +38,17 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 7,
-              "Title": "FormCaNhanHocSinh.cs [Design]",
-              "DocumentMoniker": "C:\\Users\\hoang\\Desktop\\quanLyDiemHocSinh\\managerStudent\\FormCaNhanHocSinh.cs",
-              "RelativeDocumentMoniker": "managerStudent\\FormCaNhanHocSinh.cs",
-              "ToolTip": "C:\\Users\\hoang\\Desktop\\quanLyDiemHocSinh\\managerStudent\\FormCaNhanHocSinh.cs [Design]",
-              "RelativeToolTip": "managerStudent\\FormCaNhanHocSinh.cs [Design]",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-06-17T14:12:34.119Z",
-              "EditorCaption": " [Design]"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 5,
-              "Title": "FormChinhSuaDiem.cs",
-              "DocumentMoniker": "C:\\Users\\hoang\\Desktop\\quanLyDiemHocSinh\\managerStudent\\FormChinhSuaDiem.cs",
-              "RelativeDocumentMoniker": "managerStudent\\FormChinhSuaDiem.cs",
-              "ToolTip": "C:\\Users\\hoang\\Desktop\\quanLyDiemHocSinh\\managerStudent\\FormChinhSuaDiem.cs",
-              "RelativeToolTip": "managerStudent\\FormChinhSuaDiem.cs",
-              "ViewState": "AQIAAFQAAAAAAAAAAAAnwFMAAAAlAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-06-17T13:40:21.152Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 6,
-              "Title": "FormChinhSuaDiem.cs [Design]",
-              "DocumentMoniker": "C:\\Users\\hoang\\Desktop\\quanLyDiemHocSinh\\managerStudent\\FormChinhSuaDiem.cs",
-              "RelativeDocumentMoniker": "managerStudent\\FormChinhSuaDiem.cs",
-              "ToolTip": "C:\\Users\\hoang\\Desktop\\quanLyDiemHocSinh\\managerStudent\\FormChinhSuaDiem.cs [Design]",
-              "RelativeToolTip": "managerStudent\\FormChinhSuaDiem.cs [Design]",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-06-17T13:35:34.699Z",
-              "EditorCaption": " [Design]"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 11,
-              "Title": "Microsoft.Common.CurrentVersion.targets",
-              "DocumentMoniker": "C:\\Program Files\\Microsoft Visual Studio\\2022\\Community\\MSBuild\\Current\\Bin\\amd64\\Microsoft.Common.CurrentVersion.targets",
-              "RelativeDocumentMoniker": "..\\..\\..\\..\\Program Files\\Microsoft Visual Studio\\2022\\Community\\MSBuild\\Current\\Bin\\amd64\\Microsoft.Common.CurrentVersion.targets",
-              "ToolTip": "C:\\Program Files\\Microsoft Visual Studio\\2022\\Community\\MSBuild\\Current\\Bin\\amd64\\Microsoft.Common.CurrentVersion.targets",
-              "RelativeToolTip": "..\\..\\..\\..\\Program Files\\Microsoft Visual Studio\\2022\\Community\\MSBuild\\Current\\Bin\\amd64\\Microsoft.Common.CurrentVersion.targets",
-              "ViewState": "AQIAAK0SAAAAAAAAAAAEwLUSAAAEAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003801|",
-              "WhenOpened": "2024-06-17T13:27:14.215Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 15,
-              "Title": "managerStudent.AssemblyInfo.cs",
-              "DocumentMoniker": "C:\\Users\\hoang\\Desktop\\quanLyDiemHocSinh\\managerStudent\\obj\\Debug\\net8.0-windows\\managerStudent.AssemblyInfo.cs",
-              "RelativeDocumentMoniker": "managerStudent\\obj\\Debug\\net8.0-windows\\managerStudent.AssemblyInfo.cs",
-              "ToolTip": "C:\\Users\\hoang\\Desktop\\quanLyDiemHocSinh\\managerStudent\\obj\\Debug\\net8.0-windows\\managerStudent.AssemblyInfo.cs",
-              "RelativeToolTip": "managerStudent\\obj\\Debug\\net8.0-windows\\managerStudent.AssemblyInfo.cs",
-              "ViewState": "AQIAAAwAAAAAAAAAAAAcwA0AAAAAAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-06-17T12:17:54.955Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 4,
-              "Title": "DiemHocSinh.Designer.cs",
-              "DocumentMoniker": "C:\\Users\\hoang\\Desktop\\quanLyDiemHocSinh\\managerStudent\\DiemHocSinh.Designer.cs",
-              "RelativeDocumentMoniker": "managerStudent\\DiemHocSinh.Designer.cs",
-              "ToolTip": "C:\\Users\\hoang\\Desktop\\quanLyDiemHocSinh\\managerStudent\\DiemHocSinh.Designer.cs",
-              "RelativeToolTip": "managerStudent\\DiemHocSinh.Designer.cs",
-              "ViewState": "AQIAAGMBAAAAAAAAAAAtwGoBAAAAAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-06-16T11:12:22.356Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 10,
-              "Title": "TrangChuQuanLy.Designer.cs",
-              "DocumentMoniker": "C:\\Users\\hoang\\Desktop\\quanLyDiemHocSinh\\managerStudent\\TrangChuQuanLy.Designer.cs",
-              "RelativeDocumentMoniker": "managerStudent\\TrangChuQuanLy.Designer.cs",
-              "ToolTip": "C:\\Users\\hoang\\Desktop\\quanLyDiemHocSinh\\managerStudent\\TrangChuQuanLy.Designer.cs",
-              "RelativeToolTip": "managerStudent\\TrangChuQuanLy.Designer.cs",
-              "ViewState": "AQIAAAsAAAAAAAAAAAAAwAAAAAAAAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-06-16T11:07:43.84Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 12,
-              "Title": "TrangChuQuanLy.cs",
-              "DocumentMoniker": "C:\\Users\\hoang\\Desktop\\quanLyDiemHocSinh\\managerStudent\\TrangChuQuanLy.cs",
-              "RelativeDocumentMoniker": "managerStudent\\TrangChuQuanLy.cs",
-              "ToolTip": "C:\\Users\\hoang\\Desktop\\quanLyDiemHocSinh\\managerStudent\\TrangChuQuanLy.cs",
-              "RelativeToolTip": "managerStudent\\TrangChuQuanLy.cs",
-              "ViewState": "AQIAAGQAAAAAAAAAAAAwwG0AAAAAAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-06-16T10:37:34.24Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 8,
-              "Title": "TrangChuQuanLy.cs [Design]",
-              "DocumentMoniker": "C:\\Users\\hoang\\Desktop\\quanLyDiemHocSinh\\managerStudent\\TrangChuQuanLy.cs",
-              "RelativeDocumentMoniker": "managerStudent\\TrangChuQuanLy.cs",
-              "ToolTip": "C:\\Users\\hoang\\Desktop\\quanLyDiemHocSinh\\managerStudent\\TrangChuQuanLy.cs [Design]",
-              "RelativeToolTip": "managerStudent\\TrangChuQuanLy.cs [Design]",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-06-16T10:37:31.481Z",
-              "EditorCaption": " [Design]"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 1,
-              "Title": "DiemHocSinh.cs",
-              "DocumentMoniker": "C:\\Users\\hoang\\Desktop\\quanLyDiemHocSinh\\managerStudent\\DiemHocSinh.cs",
-              "RelativeDocumentMoniker": "managerStudent\\DiemHocSinh.cs",
-              "ToolTip": "C:\\Users\\hoang\\Desktop\\quanLyDiemHocSinh\\managerStudent\\DiemHocSinh.cs",
-              "RelativeToolTip": "managerStudent\\DiemHocSinh.cs",
-              "ViewState": "AQIAAGEBAAAAAAAAAAAowGMBAAAAAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-06-16T10:27:37.916Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 13,
-              "Title": "ThemHocSinh.cs",
-              "DocumentMoniker": "C:\\Users\\hoang\\Desktop\\quanLyDiemHocSinh\\managerStudent\\ThemHocSinh.cs",
-              "RelativeDocumentMoniker": "managerStudent\\ThemHocSinh.cs",
-              "ToolTip": "C:\\Users\\hoang\\Desktop\\quanLyDiemHocSinh\\managerStudent\\ThemHocSinh.cs",
-              "RelativeToolTip": "managerStudent\\ThemHocSinh.cs",
-              "ViewState": "AQIAAO0AAAAAAAAAAAAYwEYAAAAXAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-06-16T10:03:03.286Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 9,
-              "Title": "ThemHocSinh.cs [Design]",
-              "DocumentMoniker": "C:\\Users\\hoang\\Desktop\\quanLyDiemHocSinh\\managerStudent\\ThemHocSinh.cs",
-              "RelativeDocumentMoniker": "managerStudent\\ThemHocSinh.cs",
-              "ToolTip": "C:\\Users\\hoang\\Desktop\\quanLyDiemHocSinh\\managerStudent\\ThemHocSinh.cs [Design]",
-              "RelativeToolTip": "managerStudent\\ThemHocSinh.cs [Design]",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-06-16T10:03:00.34Z",
-              "EditorCaption": " [Design]"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 14,
-              "Title": "ThemSuaDiem.Designer.cs",
-              "DocumentMoniker": "C:\\Users\\hoang\\Desktop\\quanLyDiemHocSinh\\managerStudent\\ThemSuaDiem.Designer.cs",
-              "RelativeDocumentMoniker": "managerStudent\\ThemSuaDiem.Designer.cs",
-              "ToolTip": "C:\\Users\\hoang\\Desktop\\quanLyDiemHocSinh\\managerStudent\\ThemSuaDiem.Designer.cs",
-              "RelativeToolTip": "managerStudent\\ThemSuaDiem.Designer.cs",
-              "ViewState": "AQIAAA0AAAAAAAAAAAAQwJYBAAAcAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-06-16T09:27:11.371Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
               "DocumentIndex": 2,
               "Title": "ThemSuaDiem.cs",
               "DocumentMoniker": "C:\\Users\\hoang\\Desktop\\quanLyDiemHocSinh\\managerStudent\\ThemSuaDiem.cs",
               "RelativeDocumentMoniker": "managerStudent\\ThemSuaDiem.cs",
               "ToolTip": "C:\\Users\\hoang\\Desktop\\quanLyDiemHocSinh\\managerStudent\\ThemSuaDiem.cs",
               "RelativeToolTip": "managerStudent\\ThemSuaDiem.cs",
-              "ViewState": "AQIAALAAAAAAAAAAAAAewLcAAAARAAAA",
+              "ViewState": "AQIAAFUAAAAAAAAAAAAmwF4AAABxAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-06-16T09:10:47.92Z",
+              "IsPinned": true,
               "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 3,
-              "Title": "ThemSuaDiem.cs [Design]",
-              "DocumentMoniker": "C:\\Users\\hoang\\Desktop\\quanLyDiemHocSinh\\managerStudent\\ThemSuaDiem.cs",
-              "RelativeDocumentMoniker": "managerStudent\\ThemSuaDiem.cs",
-              "ToolTip": "C:\\Users\\hoang\\Desktop\\quanLyDiemHocSinh\\managerStudent\\ThemSuaDiem.cs [Design]",
-              "RelativeToolTip": "managerStudent\\ThemSuaDiem.cs [Design]",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-06-16T09:10:31.84Z",
-              "EditorCaption": " [Design]"
             },
             {
               "$type": "Document",
@@ -281,7 +59,32 @@
               "ToolTip": "C:\\Users\\hoang\\Desktop\\quanLyDiemHocSinh\\managerStudent\\DiemHocSinh.cs [Design]",
               "RelativeToolTip": "managerStudent\\DiemHocSinh.cs [Design]",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-06-15T19:15:02.804Z",
+              "WhenOpened": "2024-06-17T15:41:10.465Z",
+              "EditorCaption": " [Design]"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "FormChinhSuaDiem.cs",
+              "DocumentMoniker": "C:\\Users\\hoang\\Desktop\\quanLyDiemHocSinh\\managerStudent\\FormChinhSuaDiem.cs",
+              "RelativeDocumentMoniker": "managerStudent\\FormChinhSuaDiem.cs",
+              "ToolTip": "C:\\Users\\hoang\\Desktop\\quanLyDiemHocSinh\\managerStudent\\FormChinhSuaDiem.cs",
+              "RelativeToolTip": "managerStudent\\FormChinhSuaDiem.cs",
+              "ViewState": "AQIAAMoAAAAAAAAAAAAswNEAAAB2AAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-06-17T15:37:41.257Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "FormChinhSuaDiem.cs [Design]",
+              "DocumentMoniker": "C:\\Users\\hoang\\Desktop\\quanLyDiemHocSinh\\managerStudent\\FormChinhSuaDiem.cs",
+              "RelativeDocumentMoniker": "managerStudent\\FormChinhSuaDiem.cs",
+              "ToolTip": "C:\\Users\\hoang\\Desktop\\quanLyDiemHocSinh\\managerStudent\\FormChinhSuaDiem.cs [Design]",
+              "RelativeToolTip": "managerStudent\\FormChinhSuaDiem.cs [Design]",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-06-17T15:37:39.479Z",
               "EditorCaption": " [Design]"
             }
           ]

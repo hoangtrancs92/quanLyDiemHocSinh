@@ -12,6 +12,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using static Microsoft.EntityFrameworkCore.DbLoggerCategory;
 
 namespace managerStudent
 {
@@ -53,27 +54,42 @@ namespace managerStudent
             txtTen.Text = this.HoTenHS;
             txtLop.Text = this.TenLop;
             loadTenMonHoc();
-
+            ReloadData();
             using (var context = new EFDbContext())
             {
-                var query = (from diem in context.Diems
-                             join monHoc in context.MonHocs on diem.MaMon equals monHoc.MaMon
-                             join hocSinh in context.HocSinhs on diem.MaHS equals hocSinh.MaHS
-                             join lop in context.Lops on hocSinh.MaLop equals lop.MaLop
-                             where diem.MaHS == this.MaHS
-                             select new
-                             {
-                                 monHoc.MaMon,
-                                 monHoc.TenMH,
-                                 diem.DiemGKHK1,
-                                 diem.DiemCKHK1,
-                                 diem.DiemGKHK2,
-                                 diem.DiemCKHK2,
-                                 lop.NamHoc
-                             });
+                var query = context.Diems
+    .Include(d => d.MonHoc)    // Include related MonHoc entities
+    .Include(d => d.HocSinh)   // Include related HocSinh entities
+    .Where(d => d.MaHS == MaHS) // Filter by student MaHS
+    .ToList();                  // Execute query and retrieve all matching Diem entities
+                decimal sumDTB = 0;
+                foreach (var diem in query.ToList())
+                {
+                    sumDTB += diem.DTB;
+                }
+                double diemTrungBinhTong = query.ToList().Count > 0 ? (double)sumDTB / query.ToList().Count : 0.0;
+                diemTrungBinhTong = Math.Round(diemTrungBinhTong, 2);
+                lbDiemTBTong.Text = diemTrungBinhTong.ToString();
+                if (diemTrungBinhTong >= 8)
+                {
+                    lbXepLoaiTong.Text = "Giỏi";
 
-                dataGridViewMonHoc.DataSource = query.ToList();
+                }
+                else if (diemTrungBinhTong >= 6.5)
+                {
+                    lbXepLoaiTong.Text = "Khá";
 
+                }
+                else if (diemTrungBinhTong >= 5)
+                {
+                    lbXepLoaiTong.Text = "Trung bình";
+
+                }
+                else
+                {
+                    lbXepLoaiTong.Text = "Yếu";
+
+                }
             }
         }
 
@@ -141,6 +157,7 @@ namespace managerStudent
                     lbHK1.Text = (Convert.ToInt32(monHocData?.TiLeHK1 * 100)).ToString() + "%";
                     lbHK2.Text = (Convert.ToInt32(monHocData?.TiLeHK2 * 100)).ToString() + "%";
                 }
+
             }
             if (dataGridViewMonHoc.Columns[e.ColumnIndex].Name == "ChinhSuaDiem")
             {
@@ -326,33 +343,37 @@ namespace managerStudent
 
             using (var context = new EFDbContext())
             {
-                var diem = context.Diems
-                 .Include(d => d.MonHoc)  // Nạp thông tin từ bảng MonHoc
-                 .Include(d => d.HocSinh) // Nạp thông tin từ bảng HocSinh
-                 .Where(d => d.MaHS == MaHS && d.MaMon == MaMonHoc)
-                 .FirstOrDefault();
-
-                lbDiemTrungBinh.Text = diem.DTB.ToString();
-                lbXepLoai.Text = diem.XepLoai.ToString();
-                double finalAverage = double.Parse(diem.DTB.ToString());
-                if (finalAverage >= 8)
+                var query = context.Diems
+    .Include(d => d.MonHoc)    // Include related MonHoc entities
+    .Include(d => d.HocSinh)   // Include related HocSinh entities
+    .Where(d => d.MaHS == MaHS) // Filter by student MaHS
+    .ToList();                  // Execute query and retrieve all matching Diem entities
+                decimal sumDTB = 0;
+                foreach (var diem in query.ToList())
                 {
-                    lbXepLoai.Text = "Giỏi";
+                    sumDTB += diem.DTB;
+                }
+                double diemTrungBinhTong = query.ToList().Count > 0 ? (double)sumDTB / query.ToList().Count : 0.0;
+                diemTrungBinhTong = Math.Round(diemTrungBinhTong, 2);
+                lbDiemTBTong.Text = diemTrungBinhTong.ToString();
+                if (diemTrungBinhTong >= 8)
+                {
+                    lbXepLoaiTong.Text = "Giỏi";
 
                 }
-                else if (finalAverage >= 6.5)
+                else if (diemTrungBinhTong >= 6.5)
                 {
-                    lbXepLoai.Text = "Khá";
+                    lbXepLoaiTong.Text = "Khá";
 
                 }
-                else if (finalAverage >= 5)
+                else if (diemTrungBinhTong >= 5)
                 {
-                    lbXepLoai.Text = "Trung bình";
+                    lbXepLoaiTong.Text = "Trung bình";
 
                 }
                 else
                 {
-                    lbXepLoai.Text = "Yếu";
+                    lbXepLoaiTong.Text = "Yếu";
 
                 }
             }
@@ -405,10 +426,12 @@ namespace managerStudent
                                  diem.DiemCKHK1,
                                  diem.DiemGKHK2,
                                  diem.DiemCKHK2,
+                                 diem.DTB,
                                  lop.NamHoc
                              });
 
                 dataGridViewMonHoc.DataSource = query.ToList();
+           
             }
 
             using (var context = new EFDbContext())
@@ -455,6 +478,42 @@ namespace managerStudent
                     lbDiemTrungBinh.ForeColor = Color.Red;
                 }
             }
+
+            using (var context = new EFDbContext())
+            {
+                var query = context.Diems
+    .Include(d => d.MonHoc)    // Include related MonHoc entities
+    .Include(d => d.HocSinh)   // Include related HocSinh entities
+    .Where(d => d.MaHS == MaHS) // Filter by student MaHS
+    .ToList();                  // Execute query and retrieve all matching Diem entities
+                decimal sumDTB = 0;
+                foreach (var diem in query.ToList())
+                {
+                    sumDTB += diem.DTB;
+                }
+                double diemTrungBinhTong = query.ToList().Count > 0 ? (double)sumDTB / query.ToList().Count : 0.0;
+                lbDiemTBTong.Text = diemTrungBinhTong.ToString();
+                if (diemTrungBinhTong >= 8)
+                {
+                    lbXepLoaiTong.Text = "Giỏi";
+
+                }
+                else if (diemTrungBinhTong >= 6.5)
+                {
+                    lbXepLoaiTong.Text = "Khá";
+
+                }
+                else if (diemTrungBinhTong >= 5)
+                {
+                    lbXepLoaiTong.Text = "Trung bình";
+
+                }
+                else
+                {
+                    lbXepLoaiTong.Text = "Yếu";
+
+                }
+            }    
         }
 
         private void lbDiemTrungBinh_Click(object sender, EventArgs e)

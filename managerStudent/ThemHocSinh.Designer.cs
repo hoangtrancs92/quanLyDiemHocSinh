@@ -203,9 +203,9 @@
             label7.ForeColor = Color.DarkCyan;
             label7.Location = new Point(392, 18);
             label7.Name = "label7";
-            label7.Size = new Size(286, 45);
+            label7.Size = new Size(321, 45);
             label7.TabIndex = 30;
-            label7.Text = "Tạo mới học sinh";
+            label7.Text = "Thêm/Sửa học sinh";
             // 
             // ThemHocSinh
             // 

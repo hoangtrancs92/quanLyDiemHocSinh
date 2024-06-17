@@ -82,17 +82,19 @@ namespace managerStudent
 
         private void button1_Click(object sender, EventArgs e)
         {
+            decimal DTB;
             using (var context = new EFDbContext())
             {
+               
                 var diem = new Diem
                 {
                     MaHS = maHS,
                     MaMon = (int)comboBox1.SelectedValue,
                     DiemGKHK1 = decimal.Parse(string.IsNullOrEmpty(txtDiemGKHK1.Text) ? "0" : txtDiemGKHK1.Text),
-                    DiemCKHK1 = decimal.Parse(string.IsNullOrEmpty(txtDiemGKHK2.Text) ? "0" : txtDiemGKHK2.Text),
-                    DiemGKHK2 = decimal.Parse(string.IsNullOrEmpty(txtDiemCKHK2.Text) ? "0" : txtDiemCKHK2.Text),
-                    DiemCKHK2 = decimal.Parse(string.IsNullOrEmpty(lbDiemTBTong.Text) ? "0" : lbDiemTBTong.Text),
-                    DTB = !lbDiemTBTong.Text.Equals("N/A", StringComparison.OrdinalIgnoreCase) ? decimal.Parse(lbDiemTBTong.Text):0,
+                    DiemCKHK1 = decimal.Parse(string.IsNullOrEmpty(txtDiemCKHK1.Text) ? "0" : txtDiemCKHK1.Text),
+                    DiemGKHK2 = decimal.Parse(string.IsNullOrEmpty(txtDiemGKHK2.Text) ? "0" : txtDiemGKHK2.Text),
+                    DiemCKHK2 = decimal.Parse(string.IsNullOrEmpty(txtDiemCKHK2.Text) ? "0" : txtDiemCKHK2.Text),
+                    DTB = decimal.Parse(lbDiemTBTong.Text),
                     XepLoai = lbXepLoai.Text
 
                 };
@@ -187,7 +189,7 @@ namespace managerStudent
             {
                 lbDTBHK1.Text = "N/A";
                 lbDTBHK2.Text = "N/A";
-                lbDiemTBTong.Text = "N/A";
+                lbDiemTBTong.Text = "0";
                 lbXepLoai.Text = "N/A";
             }
         }
