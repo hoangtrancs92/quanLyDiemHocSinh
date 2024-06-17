@@ -57,6 +57,10 @@
             lbHK1 = new Label();
             lbCuoiKi = new Label();
             btnThem = new Button();
+            lbDiemTrungBinh = new Label();
+            lbtextDTB = new Label();
+            lbtxtxeploai = new Label();
+            lbXepLoai = new Label();
             ((System.ComponentModel.ISupportInitialize)dataGridViewMonHoc).BeginInit();
             SuspendLayout();
             // 
@@ -326,12 +330,56 @@
             btnThem.UseVisualStyleBackColor = true;
             btnThem.Click += btnThem_Click;
             // 
+            // lbDiemTrungBinh
+            // 
+            lbDiemTrungBinh.AutoSize = true;
+            lbDiemTrungBinh.Font = new Font("Segoe UI Black", 9F, FontStyle.Bold);
+            lbDiemTrungBinh.Location = new Point(608, 614);
+            lbDiemTrungBinh.Name = "lbDiemTrungBinh";
+            lbDiemTrungBinh.Size = new Size(0, 25);
+            lbDiemTrungBinh.TabIndex = 22;
+            lbDiemTrungBinh.Click += lbDiemTrungBinh_Click;
+            // 
+            // lbtextDTB
+            // 
+            lbtextDTB.AutoSize = true;
+            lbtextDTB.Font = new Font("Segoe UI Black", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            lbtextDTB.Location = new Point(362, 613);
+            lbtextDTB.Name = "lbtextDTB";
+            lbtextDTB.Size = new Size(203, 25);
+            lbtextDTB.TabIndex = 23;
+            lbtextDTB.Text = "Điểm trung bình môn";
+            lbtextDTB.Click += lbtextDTB_Click;
+            // 
+            // lbtxtxeploai
+            // 
+            lbtxtxeploai.AutoSize = true;
+            lbtxtxeploai.Font = new Font("Segoe UI Black", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            lbtxtxeploai.Location = new Point(362, 668);
+            lbtxtxeploai.Name = "lbtxtxeploai";
+            lbtxtxeploai.Size = new Size(129, 25);
+            lbtxtxeploai.TabIndex = 24;
+            lbtxtxeploai.Text = "Xep loai môn";
+            // 
+            // lbXepLoai
+            // 
+            lbXepLoai.AutoSize = true;
+            lbXepLoai.Font = new Font("Segoe UI Black", 9F, FontStyle.Bold);
+            lbXepLoai.Location = new Point(608, 668);
+            lbXepLoai.Name = "lbXepLoai";
+            lbXepLoai.Size = new Size(0, 25);
+            lbXepLoai.TabIndex = 25;
+            // 
             // DiemHocSinh
             // 
             AutoScaleDimensions = new SizeF(10F, 25F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = SystemColors.Control;
             ClientSize = new Size(1509, 908);
+            Controls.Add(lbXepLoai);
+            Controls.Add(lbtxtxeploai);
+            Controls.Add(lbtextDTB);
+            Controls.Add(lbDiemTrungBinh);
             Controls.Add(btnThem);
             Controls.Add(lbCuoiKi);
             Controls.Add(lbHK1);
@@ -395,5 +443,9 @@
         private DataGridViewButtonColumn ChinhSuaDiem;
         private DataGridViewButtonColumn XoaDiemColumn;
         private Button btnThem;
+        private Label lbDiemTrungBinh;
+        private Label lbtextDTB;
+        private Label lbtxtxeploai;
+        private Label lbXepLoai;
     }
 }

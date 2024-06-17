@@ -20,6 +20,7 @@ namespace managerStudent
         string MaHS = "";
         string HoTenHS = "";
         string TenLop = "";
+        int MaMonHoc = 0;
         private readonly HocSinhService _hocSinhService;
         private readonly EFDbContext _context;
         public DiemHocSinh(string MaHS, string HoTenHS, string TenLop)
@@ -83,7 +84,7 @@ namespace managerStudent
                 DataGridViewRow selectedRow = dataGridViewMonHoc.Rows[e.RowIndex];
                 // Lấy giá trị của ô trong hàng được chọn
                 int maMon = Convert.ToInt32(selectedRow.Cells["MaMon"].Value);
-
+                this.MaMonHoc = maMon;
                 // Xử lý dữ liệu
                 using (var context = new EFDbContext())
                 {
@@ -97,21 +98,30 @@ namespace managerStudent
                         mh.TiLeHK2,
                     }).FirstOrDefault();
 
+                    var diem = context.Diems
+                 .Include(d => d.MonHoc)  // Nạp thông tin từ bảng MonHoc
+                 .Include(d => d.HocSinh) // Nạp thông tin từ bảng HocSinh
+                 .Where(d => d.MaHS == MaHS && d.MaMon == maMon)
+                 .FirstOrDefault();
+
                     lbGiuaKi.Text = (Convert.ToInt32(monHocData?.TiLeGK * 100)).ToString() + "%";
                     lbCuoiKi.Text = (Convert.ToInt32(monHocData?.TiLeCuoiKi * 100)).ToString() + "%";
                     lbHK1.Text = (Convert.ToInt32(monHocData?.TiLeHK1 * 100)).ToString() + "%";
                     lbHK2.Text = (Convert.ToInt32(monHocData?.TiLeHK2 * 100)).ToString() + "%";
+                    lbDiemTrungBinh.Text = diem.DTB.ToString();
+                    lbXepLoai.Text = diem.XepLoai.ToString();
                 }
             }
         }
 
         private void dataGridViewMonHoc_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
+            DataGridViewRow selectedRow = dataGridViewMonHoc.Rows[e.RowIndex];
+            // Lấy giá trị của ô trong hàng được chọn
+            int maMon = Convert.ToInt32(selectedRow.Cells["MaMon"].Value);
             if (e.RowIndex >= 0)
             {
-                DataGridViewRow selectedRow = dataGridViewMonHoc.Rows[e.RowIndex];
-                // Lấy giá trị của ô trong hàng được chọn
-                int maMon = Convert.ToInt32(selectedRow.Cells["MaMon"].Value);
+
 
                 // Xử lý dữ liệu
                 using (var context = new EFDbContext())
@@ -132,16 +142,15 @@ namespace managerStudent
                     lbHK2.Text = (Convert.ToInt32(monHocData?.TiLeHK2 * 100)).ToString() + "%";
                 }
             }
-            if (dataGridViewMonHoc.Columns[e.ColumnIndex].Name == "ChinhSuaDiemColumn")
+            if (dataGridViewMonHoc.Columns[e.ColumnIndex].Name == "ChinhSuaDiem")
             {
-                ThemSuaDiem f = new ThemSuaDiem(MaHS.ToString(), int.Parse(MaMon.ToString()));
+                FormChinhSuaDiem f = new FormChinhSuaDiem(MaHS.ToString(), maMon);
                 f.FormClosed += Dialog_FormClosed;
                 f.ShowDialog();
             }
 
             if (dataGridViewMonHoc.Columns[e.ColumnIndex].Name == "XoaDiemColumn")
             {
-                var maMon = dataGridViewMonHoc.Rows[e.RowIndex].Cells["MaMon"].Value;
                 using (var context = new EFDbContext())
                 {
                     DialogResult result = MessageBox.Show("Bạn có muốn xóa điểm này không?", "Xác nhận xóa", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
@@ -244,7 +253,8 @@ namespace managerStudent
                 if (soLuongMonChuaCoDiem > 0)
                 {
                     btnThem.Enabled = true;
-                } else
+                }
+                else
                 {
                     btnThem.Enabled = false;
                 }
@@ -313,6 +323,39 @@ namespace managerStudent
                     btnThem.Enabled = false;
                 }
             }
+
+            using (var context = new EFDbContext())
+            {
+                var diem = context.Diems
+                 .Include(d => d.MonHoc)  // Nạp thông tin từ bảng MonHoc
+                 .Include(d => d.HocSinh) // Nạp thông tin từ bảng HocSinh
+                 .Where(d => d.MaHS == MaHS && d.MaMon == MaMonHoc)
+                 .FirstOrDefault();
+
+                lbDiemTrungBinh.Text = diem.DTB.ToString();
+                lbXepLoai.Text = diem.XepLoai.ToString();
+                double finalAverage = double.Parse(diem.DTB.ToString());
+                if (finalAverage >= 8)
+                {
+                    lbXepLoai.Text = "Giỏi";
+
+                }
+                else if (finalAverage >= 6.5)
+                {
+                    lbXepLoai.Text = "Khá";
+
+                }
+                else if (finalAverage >= 5)
+                {
+                    lbXepLoai.Text = "Trung bình";
+
+                }
+                else
+                {
+                    lbXepLoai.Text = "Yếu";
+
+                }
+            }
             // Thực hiện logic tải lại dữ liệu trên form cha ở đây
             ReloadData();
         }
@@ -340,6 +383,7 @@ namespace managerStudent
                                      lop.NamHoc
                                  });
                     dataGridViewMonHoc.DataSource = query.ToList();
+
                     return;
                 }
 
@@ -366,6 +410,61 @@ namespace managerStudent
 
                 dataGridViewMonHoc.DataSource = query.ToList();
             }
+
+            using (var context = new EFDbContext())
+            {
+                var diem = context.Diems
+                 .Include(d => d.MonHoc)  // Nạp thông tin từ bảng MonHoc
+                 .Include(d => d.HocSinh) // Nạp thông tin từ bảng HocSinh
+                 .Where(d => d.MaHS == MaHS && d.MaMon == MaMonHoc)
+                 .FirstOrDefault();
+
+                lbDiemTrungBinh.Text = diem.DTB.ToString();
+                lbXepLoai.Text = diem.XepLoai.ToString();
+                double finalAverage = double.Parse(diem.DTB.ToString());
+                if (finalAverage >= 8)
+                {
+                    lbXepLoai.Text = "Giỏi";
+                    lbtextDTB.ForeColor = Color.Green;
+                    lbtxtxeploai.ForeColor = Color.Green;
+                    lbXepLoai.ForeColor = Color.Green;
+                    lbDiemTrungBinh.ForeColor = Color.Green;
+                }
+                else if (finalAverage >= 6.5)
+                {
+                    lbXepLoai.Text = "Khá";
+                    lbtextDTB.ForeColor = Color.Green;
+                    lbtxtxeploai.ForeColor = Color.Green;
+                    lbXepLoai.ForeColor = Color.Green;
+                    lbDiemTrungBinh.ForeColor = Color.Green;
+                }
+                else if (finalAverage >= 5)
+                {
+                    lbXepLoai.Text = "Trung bình";
+                    lbtextDTB.ForeColor = Color.Red;
+                    lbtxtxeploai.ForeColor = Color.Red;
+                    lbXepLoai.ForeColor = Color.Red;
+                    lbDiemTrungBinh.ForeColor = Color.Red;
+                }
+                else
+                {
+                    lbXepLoai.Text = "Yếu";
+                    lbtextDTB.ForeColor = Color.Red;
+                    lbtxtxeploai.ForeColor = Color.Red;
+                    lbXepLoai.ForeColor = Color.Red;
+                    lbDiemTrungBinh.ForeColor = Color.Red;
+                }
+            }
+        }
+
+        private void lbDiemTrungBinh_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void lbtextDTB_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }
